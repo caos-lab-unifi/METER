@@ -1,20 +1,3 @@
-#' Filter Bismark cpg files considering only reads with alpha=100
-#'
-#' Filter reads using reads-dmr table created in previous step
-#'
-#' input:
-#' for each sample:
-#' - Bismark output "CpG file"
-#' - reads-dmr summary table with specific columns: read_id, meth_perc (alpha of read, i.e. degree of methylation of read)...
-#' - minimum number of CpG sites that reads with alpha=100 must cover
-#' - path to output folder (where to save the filtered cpg file)
-#'
-#' output:
-#' for each sample:
-#' Bismark-like cpg context file comprising reads with alpha=100 only
-#'
-#'
-
 
 filter_cov_alpha100 <- function(path_bismark2bedGraph, path_cpg_file, path_read_table, path_out = NULL, min_sites = 6, remove_cpg=FALSE){
 
@@ -30,10 +13,6 @@ filter_cov_alpha100 <- function(path_bismark2bedGraph, path_cpg_file, path_read_
   ### check input
   read_table <- as.data.frame(read_table)
   cpg_file <- as.data.frame(cpg_file)
-  # assertthat::assert_that(nrow(cpg_file)>0)
-  # assertthat::assert_that(is.numeric(min_sites))
-  # assertthat::assert_that(min_sites%%1==0)
-  # assertthat::assert_that(nrow(read_table)>0)
 
 
   ### FILTER READS
@@ -50,8 +29,6 @@ filter_cov_alpha100 <- function(path_bismark2bedGraph, path_cpg_file, path_read_
 
   cpg_file <- cpg_file[which(cpg_file$tmp_1 %in% tokeep), ]
   rownames(cpg_file) <- NULL
-
-  # assertthat::assert_that(length(unique(cpg_file$tmp_1)) == length(tokeep))
 
   ## restore original colnames
   colnames(cpg_file) = c(cn_1, '', '', '', '')

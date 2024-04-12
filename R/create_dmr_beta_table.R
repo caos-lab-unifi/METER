@@ -1,15 +1,3 @@
-#' Create iDMR beta table for study samples
-#'
-#'
-#' input:
-#' for each sample:
-#' - iDMR of interest
-#' - Bismark .cov files
-#'
-#' output:
-#' iDMR beta table for study samples
-#'
-#'
 
 create_dmr_beta_table <- function(dmr_table, path_cov_files, id_pattern=NULL, min_sites=0){
 

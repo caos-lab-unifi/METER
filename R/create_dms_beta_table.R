@@ -1,18 +1,3 @@
-#' Create iDMS beta table for study samples
-#'
-#'
-#' input:
-#' for each sample:
-#' - iDMS of interest
-#' - Bismark .cov files for all study samples created in during processing, created considering reads with alpha=100 only
-#'
-#' output:
-#' iDMS beta table for study samples
-#'
-#'
-#'
-
-
 
 create_dms_beta_table <- function(dms_table, path_cov_files, id_pattern=NULL){
 

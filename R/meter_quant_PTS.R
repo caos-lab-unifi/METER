@@ -1,26 +1,8 @@
-#' Create PTS table
-#'
-#' input:
-#' - dms table with specific columns: dms_id, type (hyper/hypo)
-#' - dms beta table obtained from filtered* cov files
-#'
-#' *filtered cov files: cov files obtained considering only reads with alpha=100
-#'
-#' output: data.frame with PTS hyper/hypo/glob (columns) for each sample (rows)
-#'
-#'
 
-create_pts_table <- function(dms_table, beta_table){
+meter_quant_PTS <- function(dms_table, beta_table){
 
   dms_table <- as.data.frame(dms_table)
   beta_table <- as.data.frame(beta_table)
-
-
-  ### check input
-  # assertthat::assert_that(c('dms_id') %in% colnames(dms_table))
-  # assertthat::assert_that(c('type') %in% colnames(dms_table))
-  # assertthat::assert_that(nrow(dms_table)>0)
-  # assertthat::assert_that(nrow(beta_table)>0)
 
 
   ### select DMS of interst

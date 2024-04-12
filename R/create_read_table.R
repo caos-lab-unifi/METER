@@ -1,17 +1,5 @@
-#' Create dmr summary table from Bismark output "CpG file"
-#'
-
-
-
+#' @import data.table
 create_read_table <- function(path_cpg_file, dmr_table=NULL){
-
-  ### import data.table
-  librarian::shelf(data.table)
-
-
-  ### check input
-  # assertthat::assert_that(file.exists(cpg_file))
-
 
   ### load Bismark "CpG_context" file
   cpg_file=fread(path_cpg_file, header = F)
@@ -20,7 +8,6 @@ create_read_table <- function(path_cpg_file, dmr_table=NULL){
   ### summarise Bismark CpG file per read: obtain dataframe with unique read per row
   colnames(cpg_file) <- c('seq_id', 'meth_state', 'chr', 'start', 'meth_call')
 
-  # tictoc::tic()
   setDT(cpg_file)
 
   cpg_file <- cpg_file[, .(
@@ -31,7 +18,6 @@ create_read_table <- function(path_cpg_file, dmr_table=NULL){
 
   cpg_file[, meth_perc := n_meth / (n_sites)]
   cpg_file[, n_unmeth := (n_sites - n_meth)]
-  # tictoc::toc()
 
   cpg_file=as.data.frame(cpg_file)
 
@@ -43,13 +29,7 @@ create_read_table <- function(path_cpg_file, dmr_table=NULL){
   } else {
 
 
-    ### check dmr_table
     dmr_table <- as.data.frame(dmr_table)
-    # assertthat::assert_that(c('dmr_id') %in% colnames(dmr_table) & is.character(dmr_table$dmr_id))
-    # assertthat::assert_that(c('chr') %in% colnames(dmr_table))
-    # assertthat::assert_that(c('start') %in% colnames(dmr_table) & is.integer(dmr_table$start))
-    # assertthat::assert_that(c('end') %in% colnames(dmr_table) & is.integer(dmr_table$end))
-
 
     ### create dmr GRanges
     gr_dmr <- GenomicRanges::GRanges(seqnames = dmr_table$chr,
