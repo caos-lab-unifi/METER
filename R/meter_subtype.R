@@ -6,7 +6,6 @@
 #' @return A DataFrame where each row corresponds to an analyzed sample, containing the proportions of each component and an additional `pred_subtype` column indicating the inferred subtype.
 #' @export
 #'
-#' @example
 meter_subtype <- function(ref_mat, dmr_beta){
 
   common_dmr=intersect(rownames(ref_mat), rownames(dmr_beta))

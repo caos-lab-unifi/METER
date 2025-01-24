@@ -4,7 +4,7 @@
 #' @param path_cov_files The absolute path to the folder containing the filtered coverage files of samples to be analyzed, which should have been created using the `METER::filter_cov_alpha100` function.
 #' @param id_pattern A string to be used as input for the R `strsplit()` function to extract sample names from the base names of the input "coverage files." If not specified (default = NULL), the sample names will be directly obtained from the base names of the input "coverage files".
 #'
-#' @return A DataFrame (Beta Table) containing the beta-values (proportions) of the selected DMS, with DMS as row names (identified by their unique `dms_id`, consistent with the `dms_table`) and samples as column names. Beta-values are calculated based on reads with alpha value of 100% and that cover a minimum number of CpGs.
+#' @return A DataFrame (Beta Table) containing the beta-values (proportions) of the selected DMS, with DMS as row names (identified by their unique `dms_id`, consistent with the `dms_table`) and samples as column names. Beta-values are calculated based on reads with alpha value of 1 and that cover a minimum number of CpGs.
 #' @export
 #'
 #'

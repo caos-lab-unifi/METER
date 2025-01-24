@@ -1,7 +1,7 @@
 #' Computes 'proportions of tumor-like sites' PTS for each sample and creates a summary table
 #'
 #' @param dms_table A DataFrame specifying the chromosomal and genomic positions of selected DMS. It must include at least four columns: `dms_id` (a unique identifier for each DMS), `chr` (chromosome, e.g., 'chr1', 'chr2', etc.), `pos` (genomic position), and `type` ('hypo' for hypomethylated CpGs or 'hyper' for hypermethylated CpGs).
-#' @param beta_table A DataFrame created using the `create_dms_beta_table` function, containing beta values (proportions) for the selected DMS (row names) for each sample (column names).Beta-values are calculated considering only reads with an alpha value of 100% that cover at least the minimum required number of CpGs (see `create_dms_beta_table` function).
+#' @param beta_table A DataFrame created using the `create_dms_beta_table` function, containing beta values (proportions) for the selected DMS (row names) for each sample (column names).Beta-values are calculated considering only reads with an alpha value of 1 that cover at least the minimum required number of CpGs (see `create_dms_beta_table` function).
 #'
 #' @return A DataFrame ('PTS Table') containing 'proportions of tumor-like sites' (PTS values) for each sample. It includes `PTS_hyper` (for hypermethylated DMS), `PTS_hypo` (for hypomethylated DMS), and `PTS_all` (combining both hyper- and hypomethylated DMS). The `PTS_all` metric can be used as a proxy for sample's tumor content (TC).
 #' @export

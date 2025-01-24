@@ -7,7 +7,7 @@
 #' @param min_sites An integer specifying the minimum number of CpGs a read must contain to be included in the filtered "CpG_context" file and the corresponding filtered "coverage" file (default: min_sites = 6).
 #' @param remove_cpg A logical value; set to TRUE to delete the intermediate 'CpG_context' file after the final 'coverage' file has been generated.
 #'
-#' @return A "coverage" file generated using the `bismark2bedGraph` function from Bismark, created considering only reads with an alpha value of 100% and covering a number of CpG sites greater than or equal to `min_sites`.
+#' @return A "coverage" file generated using the `bismark2bedGraph` function from Bismark, created considering only reads with an alpha value of 1 and covering a number of CpG sites greater than or equal to `min_sites`.
 #' @export
 filter_cov_alpha100 <- function(path_bismark2bedGraph, path_cpg_file, path_read_table, path_out = NULL, min_sites = 6, remove_cpg=FALSE){
 
