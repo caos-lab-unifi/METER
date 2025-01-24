@@ -1,9 +1,24 @@
-
+#' Create table of DMS beta-values
+#'
+#' @param dms_table A DataFrame specifying the chromosomal and genomic positions of selected DMS, with at least 4 required columns: `dms_id` (unique identifier for each DMS), `chr` (chromosome, e.g., 'chr1', 'chr2'), `pos` (genomic position), and `type` (methylation status, either 'hypo' for hypomethylated or 'hyper' for hypermethylated DMS)
+#' @param path_cov_files The absolute path to the folder containing the filtered coverage files of samples to be analyzed, which should have been created using the `METER::filter_cov_alpha100` function.
+#' @param id_pattern A string to be used as input for the R `strsplit()` function to extract sample names from the base names of the input "coverage files." If not specified (default = NULL), the sample names will be directly obtained from the base names of the input "coverage files".
+#'
+#' @return A DataFrame (Beta Table) containing the beta-values (proportions) of the selected DMS, with DMS as row names (identified by their unique `dms_id`, consistent with the `dms_table`) and samples as column names. Beta-values are calculated based on reads with alpha value of 100% and that cover a minimum number of CpGs.
+#' @export
+#'
+#'
 create_dms_beta_table <- function(dms_table, path_cov_files, id_pattern=NULL){
+
+  assertthat::assert_that(all(c("dms_id", "chr", "pos", "type") %in% colnames(dms_table)),
+                          msg = "The dms_table does not include required columns")
 
 
   ### list files
-  lf <- list.files(path_cov_files, full.names = T, pattern = '.cov')
+  lf <- list.files(path_cov_files, full.names = T, pattern = '\\.cov')
+
+  assertthat::assert_that(length(lf)>0,
+                          msg = "the coverage file folder is empty")
 
 
   ### DMS TABLE Granges
@@ -14,7 +29,7 @@ create_dms_beta_table <- function(dms_table, path_cov_files, id_pattern=NULL){
                                 type=dms_table$type)
 
 
-  ### create iDMS table
+  ### create DMS table
   beta_data=lapply(lf, function(i) {
 
     if (is.null(id_pattern)) {
@@ -24,10 +39,13 @@ create_dms_beta_table <- function(dms_table, path_cov_files, id_pattern=NULL){
     }
 
     cov <- data.table::fread(i, header = F, data.table = F)
+
+    assertthat::assert_that(length(colnames(cov))==6, msg = "The coverage file is not in the right format")
+
     colnames(cov) <- c('chr', 'start', 'end', 'beta', 'nC', 'nT')
 
 
-    ### overlap iDMS with cov
+    ### overlap DMS with cov
     cov <- GenomicRanges::GRanges(seqnames = cov$chr,
                                   ranges = IRanges::IRanges(start = cov$start, width = 1),
                                   beta=cov$beta)

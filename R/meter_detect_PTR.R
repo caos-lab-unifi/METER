@@ -1,4 +1,12 @@
-
+#' Computes 'proportions of tumor-like reads' PTR for each sample and creates a summary table
+#'
+#' @param path_read_tables The absolute path to the folder containing all the Read Tables generated for each sample using the create_read_table function.
+#' @param min_sites An integer specifying the minimum number of CpGs a read must contain to be included in the PTR calculation (default: min_sites = 6).
+#' @param ncores An integer specifying the number of processor cores to use for parallel processing of samples (default: ncores = 1).
+#'
+#' @return A DataFrame ('PTR Table') containing PTR values for each sample, including `PTR_hyper` (for hypermethylated DMR), `PTR_hypo` (for hypomethylated DMR), and `PTR_all` (combining both hyper- and hypomethylated DMR). The `PTR_all` metric, which integrates information from both hyper- and hypomethylated DMR, is recommended for classifying samples as ctDNA+/-.
+#' @export
+#'
 meter_detect_PTR <- function(path_read_tables, min_sites = 6, ncores = 1){
 
   # ### check input
@@ -26,7 +34,7 @@ meter_detect_PTR <- function(path_read_tables, min_sites = 6, ncores = 1){
     ## select columns
     read_dmr_table <- read_dmr_table[, c("seq_id", "n_sites", "meth_perc", "dmr_id", "dmr_type")]
 
-    ## remove rows with NA, i.e. reads not overlapping iDMR
+    ## remove rows with NA, i.e. reads not overlapping DMR
     read_dmr_table <- read_dmr_table[complete.cases(read_dmr_table), ]
 
     ## select reads with alpha=100

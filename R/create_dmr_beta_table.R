@@ -1,3 +1,13 @@
+#' Create table of DMR beta-values
+#'
+#' @param dmr_table A DataFrame specifying the chromosomal and genomic positions of selected DMR, with at least 4 required columns: `dmr_id` (unique identifier for each DMR), `chr` (chromosome, e.g., 'chr1', 'chr2'), `start` (starting genomic position), `end` (ending genomic position), and `type` (methylation status, either 'hypo' for hypomethylated or 'hyper' for hypermethylated DMR).
+#' @param path_cov_files The absolute path to the folder containing the coverage files for the samples to be analyzed, with a .cov extension. These files must follow the formatting of Bismark coverage files (see: https://www.bioinformatics.babraham.ac.uk/projects/bismark/).
+#' @param id_pattern A string to be used as input for the R `strsplit()` function to extract sample names from the base names of the input "coverage files." If not specified (default = NULL), the sample names will be directly obtained from the base names of the input "coverage files".
+#' @param min_sites An integer indicating the minimum number of CpG sites that a DMR must include within a single sample (default = 0).
+#'
+#' @return A DataFrame (Beta Table) containing the beta-values (proportions) of the selected DMR, with DMR as row names (identified by their unique `dmr_id`, consistent with the `dmr_table`) and samples as column names.
+#' @export
+#'
 
 create_dmr_beta_table <- function(dmr_table, path_cov_files, id_pattern=NULL, min_sites=0){
 
@@ -13,7 +23,7 @@ create_dmr_beta_table <- function(dmr_table, path_cov_files, id_pattern=NULL, mi
                                 type=dmr_table$type)
 
 
-  ### create iDMR table
+  ### create DMR table
   beta_data <- lapply(lf, function(i) {
 
     if (is.null(id_pattern)) {
@@ -26,7 +36,7 @@ create_dmr_beta_table <- function(dmr_table, path_cov_files, id_pattern=NULL, mi
     colnames(cov)<- c('chr', 'start', 'end', 'beta', 'nC', 'nT')
 
 
-    ### overlap iDMR with cov
+    ### overlap DMR with cov
     cov <- GenomicRanges::GRanges(seqnames = cov$chr,
                                   ranges = IRanges::IRanges(start=cov$start, width=1),
                                   nC = cov$nC,
