@@ -1,7 +1,7 @@
 ---
 title: "Getting started with METER workflow"
 author: "Marta Paoli"
-date: "January 2025"
+date: "2025-01-24"
 output:
   html_document:
     number_sections: yes
