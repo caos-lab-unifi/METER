@@ -55,7 +55,7 @@ Note 1: this step takes a while, so if one has a lot of samples to process paral
 
 Note 2: the file name of the output Read Table has to be chosen by the user when saving the table, and it will serve as sample ID for subsequent steps 
   
-```{r}
+```{r, eval = FALSE}
 path_cpg_files='/path/to/Bismark_files/'
 path_out='/path/to/output_folder/create_read_table_noDMR/'
 
@@ -102,7 +102,7 @@ Note 1: this step takes a while, so if one has a lot of samples to process paral
 
 Note 2: The file name of the output .cov file derives from the base name of the input Read Table (generated in the preceding step) that has been chosen by the user  
     
-```{r}
+```{r, eval = FALSE}
 path_read_tables='/path/to/output_folder/create_read_table_noDMR/'
 path_cpg_files='/path/to/Bismark_files/'
 path_bis='/path/to/bismark2bedGraph'
@@ -143,7 +143,7 @@ This function computes the beta values (as proportions) of selected DMS for each
     
 Note 1: Samples' IDs (column names of the output DMS beta table) are derived from the base names of the input .cov files (that in turn derive from the base names of the read tables). Bismark (1) attaches some extensions to the .cov files generated that can be removed through the "id_pattern" parameter.
 
-```{r}
+```{r, eval = FALSE}
 path_cov_files='/path/to/output_folder/filter_cov_alpha100/'
 path_dmss='/path/to/dms_filtered.rds'
 path_out='/path/to/output_folder/'
@@ -171,7 +171,7 @@ computes PTS for each sample and creates a summary table
     + PTS Table: a DataFrame that includes PTS values for hypermethylated DMS (PTS_hyper), hypomethylated DMS (PTS_hypo), and both hyper and hypomethylated DMS combined (PTS_all) for each sample. PTS_all measure can be used as a proxy of TC.
 
 
-```{r}
+```{r, eval = FALSE}
 path_dmss='/path/to/dms_filtered.rds'
 path_dms_beta='/path/to/output_folder/dms_beta.rds'
 path_out='/path/to/output_folder/'
@@ -202,7 +202,7 @@ The METER package provides a set of functions that use **Bismark (1) "CpG_contex
 ### create_read_table {-}
 As outlined in the METER-quant section, this function utilizes a Bismark (1) "CpG_context" file for a specific sample to generate a comprehensive table summarizing information for each sequencing read. In detail, it creates a DataFrame containing for each read the position of the first CpG site within the read ("min_cpg_pos"), the position of the last CpG within the read ("max_cpg_pos"), the number of methylated CpGs ("n_meth"), the number of unmethylated CpGs ("n_unmeth"), and the total number of CpGs covered ("n_sites"). Importantly, this module requires the DMR Table to be provided. This allows the function to evaluate, for each read, the overlapping DMR ("dmr_id") and the type of the overlapping DMR ("hypo" or "hyper"), where **"overlapping" means the first  and the last CpG sites within the read are both contained within a DMR**. (See METER-quant module for details)
 
-```{r}
+```{r, eval = FALSE}
 path_cpg_files='/path/to/Bismark_files/'
 path_dmrs='/path/to/dmr_filtered.rds'
 path_out='/path/to/output_folder/create_read_table/'
@@ -245,7 +245,7 @@ computes PTR for each sample and creates a summary table
 Note 1: Sample ids in the "samp_id" column of the PTR Tables derive from the base name of the input Read Table files (generated in the preceding step) that have been chosen by the user  
     
     
-```{r}
+```{r, eval = FALSE}
 path_read_tabs='/path/to/output_folder/create_read_table/'
 path_out='/path/to/output_folder/'
 
@@ -260,7 +260,7 @@ saveRDS(ptr_tab, file.path(path_out, 'meter_detect_PTR.rds'))
 
 After generating the PTR Table for lpWGBS samples, **PTR_all** measure can be used to categorize samples as either ctDNA-positive or ctDNA-negative. For breast cancer samples, we can use the "PTR_z_score.rds" table available in the METER package. Specifically, the values associated with PTR_all in the "est_method" column serve as the benchmark thresholds. In the following example, a threshold corresponding to a Z-Sore of 3 is employed.
 
-```{r}
+```{r, eval = FALSE}
 path_zscore_table='/path/to/PTR_z_scores.rds'
 
 zscore_table=readRDS(path_zscore_table)
@@ -302,7 +302,7 @@ Note 1: in this step it is not necessary to consider reads with alpha value of 1
 
 Note 2: in this deconvolution step it is recommended to consider the beta of a specific DMR for a specific sample when the specific DMR for the specific sample covers a minimum number of CpGs, so that the beta computed is reliable (in our example we consider DMR containing a minimum of 10 CpGs per sample)
 
-```{r}
+```{r, eval = FALSE}
 path_cov_files='/path/to/Bismark_files/'
 path_dmrs='/path/to/dmr_filtered_subtype.rds'
 path_out='/path/to/output_folder/'
@@ -330,7 +330,7 @@ Importantly, the components estimated using EpiDISH (3) are designed to sum to 1
 
 
     
-```{r}
+```{r, eval = FALSE}
 path_subtype_ref='/path/to/ERpos_TNBC_ref.rds'
 path_dmr_beta_sub='/path/to/output_folder/dmr_beta_subtype.rds'
 path_out='/path/to/output_folder/'
