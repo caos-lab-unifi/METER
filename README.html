@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+@font-face {
+font-family: octicons-link;
+src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+}
+body {
+-webkit-text-size-adjust: 100%;
+text-size-adjust: 100%;
+color: #333;
+font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+font-size: 16px;
+line-height: 1.6;
+word-wrap: break-word;
+}
+a {
+background-color: transparent;
+}
+a:active,
+a:hover {
+outline: 0;
+}
+strong {
+font-weight: bold;
+}
+h1 {
+font-size: 2em;
+margin: 0.67em 0;
+}
+img {
+border: 0;
+}
+hr {
+box-sizing: content-box;
+height: 0;
+}
+pre {
+overflow: auto;
+}
+code,
+kbd,
+pre {
+font-family: monospace, monospace;
+font-size: 1em;
+}
+input {
+color: inherit;
+font: inherit;
+margin: 0;
+}
+html input[disabled] {
+cursor: default;
+}
+input {
+line-height: normal;
+}
+input[type="checkbox"] {
+box-sizing: border-box;
+padding: 0;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+td,
+th {
+padding: 0;
+}
+* {
+box-sizing: border-box;
+}
+input {
+font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+a {
+color: #4078c0;
+text-decoration: none;
+}
+a:hover,
+a:active {
+text-decoration: underline;
+}
+hr {
+height: 0;
+margin: 15px 0;
+overflow: hidden;
+background: transparent;
+border: 0;
+border-bottom: 1px solid #ddd;
+}
+hr:before {
+display: table;
+content: "";
+}
+hr:after {
+display: table;
+clear: both;
+content: "";
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 15px;
+margin-bottom: 15px;
+line-height: 1.1;
+}
+h1 {
+font-size: 30px;
+}
+h2 {
+font-size: 21px;
+}
+h3 {
+font-size: 16px;
+}
+h4 {
+font-size: 14px;
+}
+h5 {
+font-size: 12px;
+}
+h6 {
+font-size: 11px;
+}
+blockquote {
+margin: 0;
+}
+ul,
+ol {
+padding: 0;
+margin-top: 0;
+margin-bottom: 0;
+}
+ol ol,
+ul ol {
+list-style-type: lower-roman;
+}
+ul ul ol,
+ul ol ol,
+ol ul ol,
+ol ol ol {
+list-style-type: lower-alpha;
+}
+dd {
+margin-left: 0;
+}
+code {
+font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+font-size: 12px;
+}
+pre {
+margin-top: 0;
+margin-bottom: 0;
+font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+.select::-ms-expand {
+opacity: 0;
+}
+.octicon {
+font: normal normal normal 16px/1 octicons-link;
+display: inline-block;
+text-decoration: none;
+text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+.octicon-link:before {
+content: '\f05c';
+}
+.markdown-body:before {
+display: table;
+content: "";
+}
+.markdown-body:after {
+display: table;
+clear: both;
+content: "";
+}
+.markdown-body>*:first-child {
+margin-top: 0 !important;
+}
+.markdown-body>*:last-child {
+margin-bottom: 0 !important;
+}
+a:not([href]) {
+color: inherit;
+text-decoration: none;
+}
+.anchor {
+display: inline-block;
+padding-right: 2px;
+margin-left: -18px;
+}
+.anchor:focus {
+outline: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 1em;
+margin-bottom: 16px;
+font-weight: bold;
+line-height: 1.4;
+}
+h1 .octicon-link,
+h2 .octicon-link,
+h3 .octicon-link,
+h4 .octicon-link,
+h5 .octicon-link,
+h6 .octicon-link {
+color: #000;
+vertical-align: middle;
+visibility: hidden;
+}
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+text-decoration: none;
+}
+h1:hover .anchor .octicon-link,
+h2:hover .anchor .octicon-link,
+h3:hover .anchor .octicon-link,
+h4:hover .anchor .octicon-link,
+h5:hover .anchor .octicon-link,
+h6:hover .anchor .octicon-link {
+visibility: visible;
+}
+h1 {
+padding-bottom: 0.3em;
+font-size: 2.25em;
+line-height: 1.2;
+border-bottom: 1px solid #eee;
+}
+h1 .anchor {
+line-height: 1;
+}
+h2 {
+padding-bottom: 0.3em;
+font-size: 1.75em;
+line-height: 1.225;
+border-bottom: 1px solid #eee;
+}
+h2 .anchor {
+line-height: 1;
+}
+h3 {
+font-size: 1.5em;
+line-height: 1.43;
+}
+h3 .anchor {
+line-height: 1.2;
+}
+h4 {
+font-size: 1.25em;
+}
+h4 .anchor {
+line-height: 1.2;
+}
+h5 {
+font-size: 1em;
+}
+h5 .anchor {
+line-height: 1.1;
+}
+h6 {
+font-size: 1em;
+color: #777;
+}
+h6 .anchor {
+line-height: 1.1;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table,
+pre {
+margin-top: 0;
+margin-bottom: 16px;
+}
+hr {
+height: 4px;
+padding: 0;
+margin: 16px 0;
+background-color: #e7e7e7;
+border: 0 none;
+}
+ul,
+ol {
+padding-left: 2em;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+margin-top: 0;
+margin-bottom: 0;
+}
+li>p {
+margin-top: 16px;
+}
+dl {
+padding: 0;
+}
+dl dt {
+padding: 0;
+margin-top: 16px;
+font-size: 1em;
+font-style: italic;
+font-weight: bold;
+}
+dl dd {
+padding: 0 16px;
+margin-bottom: 16px;
+}
+blockquote {
+padding: 0 15px;
+color: #777;
+border-left: 4px solid #ddd;
+}
+blockquote>:first-child {
+margin-top: 0;
+}
+blockquote>:last-child {
+margin-bottom: 0;
+}
+table {
+display: block;
+width: 100%;
+overflow: auto;
+word-break: normal;
+word-break: keep-all;
+}
+table th {
+font-weight: bold;
+}
+table th,
+table td {
+padding: 6px 13px;
+border: 1px solid #ddd;
+}
+table tr {
+background-color: #fff;
+border-top: 1px solid #ccc;
+}
+table tr:nth-child(2n) {
+background-color: #f8f8f8;
+}
+img {
+max-width: 100%;
+box-sizing: content-box;
+background-color: #fff;
+}
+code {
+padding: 0;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
+margin: 0;
+font-size: 85%;
+background-color: rgba(0,0,0,0.04);
+border-radius: 3px;
+}
+code:before,
+code:after {
+letter-spacing: -0.2em;
+content: "\00a0";
+}
+pre>code {
+padding: 0;
+margin: 0;
+font-size: 100%;
+word-break: normal;
+white-space: pre;
+background: transparent;
+border: 0;
+}
+.highlight {
+margin-bottom: 16px;
+}
+.highlight pre,
+pre {
+padding: 16px;
+overflow: auto;
+font-size: 85%;
+line-height: 1.45;
+background-color: #f7f7f7;
+border-radius: 3px;
+}
+.highlight pre {
+margin-bottom: 0;
+word-break: normal;
+}
+pre {
+word-wrap: normal;
+}
+pre code {
+display: inline;
+max-width: initial;
+padding: 0;
+margin: 0;
+overflow: initial;
+line-height: inherit;
+word-wrap: normal;
+background-color: transparent;
+border: 0;
+}
+pre code:before,
+pre code:after {
+content: normal;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font-size: 11px;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.pl-c {
+color: #969896;
+}
+.pl-c1,
+.pl-s .pl-v {
+color: #0086b3;
+}
+.pl-e,
+.pl-en {
+color: #795da3;
+}
+.pl-s .pl-s1,
+.pl-smi {
+color: #333;
+}
+.pl-ent {
+color: #63a35c;
+}
+.pl-k {
+color: #a71d5d;
+}
+.pl-pds,
+.pl-s,
+.pl-s .pl-pse .pl-s1,
+.pl-sr,
+.pl-sr .pl-cce,
+.pl-sr .pl-sra,
+.pl-sr .pl-sre {
+color: #183691;
+}
+.pl-v {
+color: #ed6a43;
+}
+.pl-id {
+color: #b52a1d;
+}
+.pl-ii {
+background-color: #b52a1d;
+color: #f8f8f8;
+}
+.pl-sr .pl-cce {
+color: #63a35c;
+font-weight: bold;
+}
+.pl-ml {
+color: #693a17;
+}
+.pl-mh,
+.pl-mh .pl-en,
+.pl-ms {
+color: #1d3e81;
+font-weight: bold;
+}
+.pl-mq {
+color: #008080;
+}
+.pl-mi {
+color: #333;
+font-style: italic;
+}
+.pl-mb {
+color: #333;
+font-weight: bold;
+}
+.pl-md {
+background-color: #ffecec;
+color: #bd2c00;
+}
+.pl-mi1 {
+background-color: #eaffea;
+color: #55a532;
+}
+.pl-mdr {
+color: #795da3;
+font-weight: bold;
+}
+.pl-mo {
+color: #1d3e81;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.task-list-item {
+list-style-type: none;
+}
+.task-list-item+.task-list-item {
+margin-top: 3px;
+}
+.task-list-item input {
+margin: 0 0.35em 0.25em -1.6em;
+vertical-align: middle;
+}
+:checked+.radio-label {
+z-index: 1;
+position: relative;
+border-color: #4078c0;
+}
+.sourceLine {
+display: inline-block;
+}
+code .kw { color: #000000; }
+code .dt { color: #ed6a43; }
+code .dv { color: #009999; }
+code .bn { color: #009999; }
+code .fl { color: #009999; }
+code .ch { color: #009999; }
+code .st { color: #183691; }
+code .co { color: #969896; }
+code .ot { color: #0086b3; }
+code .al { color: #a61717; }
+code .fu { color: #63a35c; }
+code .er { color: #a61717; background-color: #e3d2d2; }
+code .wa { color: #000000; }
+code .cn { color: #008080; }
+code .sc { color: #008080; }
+code .vs { color: #183691; }
+code .ss { color: #183691; }
+code .im { color: #000000; }
+code .va {color: #008080; }
+code .cf { color: #000000; }
+code .op { color: #000000; }
+code .bu { color: #000000; }
+code .ex { color: #000000; }
+code .pp { color: #999999; }
+code .at { color: #008080; }
+code .do { color: #969896; }
+code .an { color: #008080; }
+code .cv { color: #008080; }
+code .in { color: #008080; }
+</style>
+<style>
+body {
+box-sizing: border-box;
+min-width: 200px;
+max-width: 980px;
+margin: 0 auto;
+padding: 45px;
+padding-top: 0px;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="getting-started-with-meter-workflow">Getting started with METER
+workflow</h1>
+<p>Marta Paoli 2025-01-24</p>
+<h1 id="meter-workflow-tutorial">METER workflow tutorial</h1>
+<p>METER (METhylome analyzER) is a computational tool to analyze the
+circulating tumor DNA (ctDNA) exploiting differentially methylated sites
+(DMS) and regions (DMR) from low-pass whole genome bisulphite sequencing
+(lpWGBS) data of cell-free DNA (cfDNA) samples. It comprises three
+modules:</p>
+<ul>
+<li><p><strong>METER-quant</strong> to measure the ctDNA, based on
+tumor-specific DMS</p></li>
+<li><p><strong>METER-detect</strong> to classify cfDNA samples as ctDNA+
+(METER+) or ctDNA- (METER-) (that is ctDNA is detected or not), based on
+tumor-specific DMR</p></li>
+<li><p><strong>METER-subtype</strong> to infer specific subtype from
+ctDNA, based on tumor subtype-specific DMR</p></li>
+</ul>
+<p>Each module relies on task-specific informative DMR and DMS
+identified through the differential analysis between DNA-methylation
+data from tumor-type specific tissue samples and control samples such as
+cell-free DNA (cfDNA) samples from healthy donors or whole blood.</p>
+<h1 id="meter-quant">METER-quant</h1>
+<p>In this module, the “proportion of tumor-like sites” (PTS) by sample
+is measured from lpWGBS as a proxy of sample’s TC. PTS for each sample
+is computed as the ratio of <strong>fully methylated (beta=100%)
+hypermethylated</strong> or <strong>fully unmethylated (beta=0%)
+hypomethylated</strong> <strong>DMS</strong> (that is DMS supporting a
+tumor-like methylation signal) to the total fully
+methylated/unmethylated DMS covered. To minimize the effect of bisulfite
+conversion errors and increase signal specificity, only reads with alpha
+value of 100%, that is reads showing only methylated or unmethylated CpG
+sites, and covering a minimum number of CpG sites (6 CpG sites by
+default) are considered for the computation of the beta values.</p>
+<h2 id="functions">Functions:</h2>
+<p>The METER package provides a set of functions that use
+<strong>Bismark (1) “CpG_context”</strong> files as a starting point to
+generate the Beta Table necessary for computing PTS.</p>
+<h3 id="create_read_table">create_read_table</h3>
+<p>Starting from Bismark (1) “CpG_context” file for a specific sample,
+this function generates a table that summarizes information for each
+sequencing read.</p>
+<ul>
+<li><strong>Input data and parameters</strong>:
+<ul>
+<li>cpg_file: Bismark (1) “CpG_context” file for the sample analyzed,
+obtained using <em>–comprehensive</em> option (as strand-specific
+methylation is not of interest, see Bismark (1) manual <a href="https://felixkrueger.github.io/Bismark/bismark/">https://felixkrueger.github.io/Bismark/bismark/</a>)</li>
+<li>dmr_table (optional, required for METER-detect module): a DataFrame
+reporting the chromosomal and genomic positions of selected DMR,
+containing at least 4 columns: “dmr_id” (unique identifier for a
+specific DMR), “chr” (chromosome reported as “chr1”, “chr2”…), “start”
+(starting genomic position), “end” (ending genomic position), and “type”
+(“hypo” for hypomethylated DMR or “hyper” for hypermethylated DMR). A
+data frame listing breast cancer-specific DMR for tumor content
+detection is included within METER package (dmr_filtered.rds).</li>
+</ul></li>
+<li><strong>Output</strong>:
+<ul>
+<li>Read Table: a DataFrame containing summarized information for each
+sequencing read, including the position of the first CpG site within the
+read (“min_cpg_pos”), the position of the last CpG within the read
+(“max_cpg_pos”), the number of methylated CpGs (“n_meth”), the number of
+unmethylated CpGs (“n_unmeth”), and the total number of CpGs covered
+(“n_sites”). Additionally, if a DMR Table is provided, it specifies, for
+each read, the overlapping DMR (“dmr_id”) and the type of the
+overlapping DMR (“hypo” or “hyper”), where “overlapping” means the read
+is entirely contained within an DMR.</li>
+</ul></li>
+</ul>
+<p>Note 1: this step takes a while, so if one has a lot of samples to
+process parallelization is recommended when possible</p>
+<p>Note 2: the file name of the output Read Table has to be chosen by
+the user when saving the table, and it will serve as sample ID for
+subsequent steps</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>path_cpg_files<span class="ot">=</span><span class="st">&#39;/path/to/Bismark_files/&#39;</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>path_out<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/create_read_table_noDMR/&#39;</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="fu">dir.create</span>(path_out, <span class="at">showWarnings =</span> F, <span class="at">recursive =</span> T)</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>cpg_files<span class="ot">=</span><span class="fu">list.files</span>(path_cpg_files, <span class="at">full.names =</span> T, <span class="at">pattern =</span> <span class="st">&#39;CpG_context&#39;</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="co"># i=cpg_files[1]</span></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a>parallel<span class="sc">::</span><span class="fu">mclapply</span>(cpg_files, <span class="cf">function</span>(i){</span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a>  samp_id<span class="ot">=</span><span class="fu">gsub</span>(<span class="st">&#39;CpG_context_&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="fu">strsplit</span>(<span class="fu">basename</span>(i), <span class="st">&quot;_bismark_&quot;</span>, <span class="at">fixed =</span> T)[[<span class="dv">1</span>]][<span class="dv">1</span>])</span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a>  read_table<span class="ot">=</span><span class="fu">create_read_table</span>(<span class="at">path_cpg_file =</span> i)</span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a>  <span class="fu">saveRDS</span>(read_table, <span class="fu">file.path</span>(path_out, <span class="fu">paste0</span>(samp_id, <span class="st">&#39;.rds&#39;</span>)))</span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a>  }, <span class="at">mc.cores =</span> <span class="dv">6</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a><span class="do">### take a look to one of the tables created</span></span>
+<span id="cb1-23"><a href="#cb1-23" tabindex="-1"></a>example_table<span class="ot">=</span><span class="fu">readRDS</span>(<span class="st">&#39;/path/to/output_folder/create_read_table_noDMR/samp1.rds&#39;</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" tabindex="-1"></a><span class="fu">head</span>(example_table)</span></code></pre></div>
+<h3 id="filter_cov_alpha100">filter_cov_alpha100</h3>
+<p>Starting from Bismark (1) “CpG_context” file and the Read Table
+obtained in the previous step for a specific sample, this function
+creates a filtered “Bismark-like CpG_context” file, considering only
+reads with alpha value of 100% (based on the samples’ Read Tables
+created in the previous step) and covering a minimum number of CpGs (6
+by default). Subsequently, it employes the <em>bismark2bedGraph</em>
+function from Bismark (1) to produce the corresponding coverage file
+(“.cov”), displaying for each CpG the count of methylated/unmethylated
+reads covering its position.</p>
+<ul>
+<li><strong>Input data and parameters</strong>:
+<ul>
+<li>path_bismark2bedGraph: absolute path to <em>bismark2bedGraph</em>
+function</li>
+<li>path_cpg_file: absolute path to Bismark (1) “CpG_context” file for
+the sample analyzed, obtained using the <em>–comprehensive</em> option
+(as strand-specific methylation is not of interest, see Bismark (1)
+manual <a href="https://felixkrueger.github.io/Bismark/bismark/">https://felixkrueger.github.io/Bismark/bismark/</a>)</li>
+<li>path_read_table: absolute path to Read Table previously
+generated</li>
+<li>path_out (optional): absolute path to output folder</li>
+<li>min_sites (default min_sites=6): integer indicating the minimum
+number of CpGs a read should contain in order to be considered in the
+filtered “CpG_context” file and consequently in the filtered “coverage
+file”</li>
+<li>remove_cpg (default remove_cpg=FALSE): TRUE if one wants to delete
+intermediate “CpG_context” file once the final “coverage file” has been
+created</li>
+</ul></li>
+<li><strong>Output</strong>:
+<ul>
+<li>“Coverage file” generated by <em>bismark2bedGraph</em> function from
+Bismark (1), constructed considering only reads with alpha value of 100%
+and covering a number of CpG sites ≥ min_sites.</li>
+</ul></li>
+</ul>
+<p>Note 1: this step takes a while, so if one has a lot of samples to
+process parallelization is recommended when possible</p>
+<p>Note 2: The file name of the output .cov file derives from the base
+name of the input Read Table (generated in the preceding step) that has
+been chosen by the user</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>path_read_tables<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/create_read_table_noDMR/&#39;</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>path_cpg_files<span class="ot">=</span><span class="st">&#39;/path/to/Bismark_files/&#39;</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>path_bis<span class="ot">=</span><span class="st">&#39;/path/to/bismark2bedGraph&#39;</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>out_folder<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/filter_cov_alpha100/&#39;</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="do">### CpG files (output of bismark methylation extractor using --comprehensive option)</span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>cpg_files<span class="ot">=</span><span class="fu">list.files</span>(path_cpg_files, <span class="at">full.names =</span> T, <span class="at">pattern =</span> <span class="st">&#39;^CpG_context*&#39;</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="do">### bismark reads summary tables</span></span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>read_tables<span class="ot">=</span><span class="fu">list.files</span>(path_read_tables, <span class="at">full.names =</span> T, <span class="at">pattern =</span> <span class="st">&#39;.rds&#39;</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="do">### run filter_cov_alpha100 function on all input samples</span></span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co"># i=read_tables[1]</span></span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a>parallel<span class="sc">::</span><span class="fu">mclapply</span>(read_tables, <span class="cf">function</span>(i){</span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a>  id<span class="ot">=</span><span class="fu">gsub</span>(<span class="st">&#39;.rds&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="fu">basename</span>(i), <span class="at">fixed =</span> T)</span>
+<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a>  path_cpg<span class="ot">=</span>cpg_files[<span class="fu">which</span>(<span class="fu">grepl</span>(id, cpg_files))]</span>
+<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a>  <span class="fu">filter_cov_alpha100</span>(<span class="at">path_bismark2bedGraph =</span> path_bis, <span class="at">path_cpg_file =</span> path_cpg, <span class="at">path_read_table =</span> i, <span class="at">path_out =</span> out_folder, <span class="at">remove_cpg =</span> F)</span>
+<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" tabindex="-1"></a>}, <span class="at">mc.cores =</span> <span class="dv">1</span>)</span></code></pre></div>
+<h3 id="create_dms_beta_table">create_dms_beta_table</h3>
+<p>This function computes the beta values (as proportions) of selected
+DMS for each sample, and creates a DataFrame with samples as column
+names and CpG sites as row names. The computation of beta values is
+performed using the filtered “coverage files” generated in the previous
+step.</p>
+<ul>
+<li><strong>Input data and parameters</strong>:
+<ul>
+<li>dms_table: DataFrame reporting the chromosomal and genomic positions
+of selected DMS, containing at least 4 columns: “dms_id” (unique
+identifier for a specific DMS), “chr” (chromosome reported as “chr1”,
+“chr2”…), “pos” (genomic position), and “type” (“hypo” for
+hypomethylated CpGs or “hyper” for hypermethylated CpGs). A data frame
+listing breast cancer-specific DMS for tumor content quantification is
+included within METER package (dms_filtered.rds).</li>
+<li>path_cov_files: absolute path to the folder that contains all the
+filtered Bismark (1) “coverage files” created for each sample in the
+previous step.</li>
+<li>id_pattern (optional): A string to be used as input for the R
+<code>strsplit()</code> function to extract sample names from the base
+names of the input “coverage files.” If not specified (default = NULL),
+the sample names will be directly obtained from the base names of the
+input “coverage files”.</li>
+</ul></li>
+<li><strong>Output</strong>:
+<ul>
+<li>Beta Table: a DataFrame containing the beta values (as proportions)
+of DMS across samples, with samples as column names and DMS as row
+names. Each DMS is reported with its unique “dms_id”, matching the
+identifiers provided in the DMS table. Beta values are computed
+considering only reads with alpha value of 100% and covering a minimum
+number of CpGs, as explained above.</li>
+</ul></li>
+</ul>
+<p>Note 1: Samples’ IDs (column names of the output DMS beta table) are
+derived from the base names of the input .cov files (that in turn derive
+from the base names of the read tables). Bismark (1) attaches some
+extensions to the .cov files generated that can be removed through the
+“id_pattern” parameter.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>path_cov_files<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/filter_cov_alpha100/&#39;</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>path_dmss<span class="ot">=</span><span class="st">&#39;/path/to/dms_filtered.rds&#39;</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>path_out<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/&#39;</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>dmss<span class="ot">=</span><span class="fu">readRDS</span>(path_dmss)</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="fu">head</span>(dmss)</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>dms_beta_tab<span class="ot">=</span><span class="fu">create_dms_beta_table</span>(<span class="at">dms_table =</span> dmss, <span class="at">path_cov_files =</span> path_cov_files, <span class="at">id_pattern =</span> <span class="st">&#39;.gz.bismark.cov.gz&#39;</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="fu">head</span>(dms_beta_tab)</span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="fu">saveRDS</span>(<span class="at">object =</span> dms_beta_tab, <span class="at">file =</span> <span class="fu">file.path</span>(path_out, <span class="st">&#39;dms_beta.rds&#39;</span>))</span></code></pre></div>
+<h3 id="meter_quant_pts">meter_quant_PTS</h3>
+<p>computes PTS for each sample and creates a summary table</p>
+<ul>
+<li><strong>Input data and parameters</strong>:
+<ul>
+<li>dms_table: a DataFrame reporting the chromosomal and genomic
+positions of selected DMS, containing at least 4 columns: “dms_id”
+(unique identifier for a specific DMS), “chr” (chromosome reported as
+“chr1”, “chr2”…), “pos” (genomic position), and “type” (“hypo” for
+hypomethylated CpGs or “hyper” for hypermethylated CpGs). A data frame
+listing breast cancer-specific DMS for tumor content quantification is
+included within METER package (dms_filtered.rds).</li>
+<li>beta_table: a DataFrame as the one created in the previous step,
+containing the beta values (as proportions) of CpG sites across samples,
+with samples as column names and CpG sites as row names. Each CpG site
+must be reported with its unique “dms_id”, matching the identifiers
+provided in the DMS table. Beta values should be computed considering
+only reads with alpha value of 100% and covering a minimum number of
+CpGs, as explained above.</li>
+</ul></li>
+<li><strong>Output</strong>:
+<ul>
+<li>PTS Table: a DataFrame that includes PTS values for hypermethylated
+DMS (PTS_hyper), hypomethylated DMS (PTS_hypo), and both hyper and
+hypomethylated DMS combined (PTS_all) for each sample. PTS_all measure
+can be used as a proxy of TC.</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>path_dmss<span class="ot">=</span><span class="st">&#39;/path/to/dms_filtered.rds&#39;</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>path_dms_beta<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/dms_beta.rds&#39;</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>path_out<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/&#39;</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>dmss<span class="ot">=</span><span class="fu">readRDS</span>(path_dmss)</span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>dms_beta<span class="ot">=</span><span class="fu">readRDS</span>(path_dms_beta)</span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="fu">head</span>(dmss)</span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="fu">head</span>(dms_beta)</span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>pts_tab<span class="ot">=</span><span class="fu">meter_quant_PTS</span>(<span class="at">dms_table =</span> dmss, <span class="at">beta_table =</span> dms_beta)</span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="fu">head</span>(pts_tab)</span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a><span class="fu">saveRDS</span>(pts_tab, <span class="fu">file.path</span>(path_out, <span class="st">&#39;meter_quant_PTS.rds&#39;</span>))</span></code></pre></div>
+<h1 id="meter-detect">METER-detect</h1>
+<p>In this module, the “proportion of tumor-like sequenced reads” (PTR)
+is computed from lpWGBS data for each sample, and a Z-Score approach,
+based on the distribution of this measure in control samples (reference
+model), is then used to classify samples as either ctDNA+ (METER+) or
+ctDNA- (METER-). As in METER-quant module, to minimize the effect of
+bisulfite conversion errors and increase signal specificity, only reads
+with alpha value of 100% and covering a minimum number of CpGs (6 CpGs
+by default) are considered for PTR computation. Specifically, PTR for
+each sample is computed as the proportion of <strong>fully
+methylated</strong> reads within the selected <strong>hyper-DMR</strong>
+and fully <strong>unmethylated reads</strong> within the selected
+<strong>hypo-DMR</strong> (that is reads supporting a tumor-like
+methylation signal) over the total reads with alpha=100% within the
+selected DMR.</p>
+<h2 id="functions-1">Functions:</h2>
+<p>The METER package provides a set of functions that use
+<strong>Bismark (1) “CpG_context”</strong> files as a starting point to
+generate the Read Tables necessary for computing PTR.</p>
+<h3 id="create_read_table-1">create_read_table</h3>
+<p>As outlined in the METER-quant section, this function utilizes a
+Bismark (1) “CpG_context” file for a specific sample to generate a
+comprehensive table summarizing information for each sequencing read. In
+detail, it creates a DataFrame containing for each read the position of
+the first CpG site within the read (“min_cpg_pos”), the position of the
+last CpG within the read (“max_cpg_pos”), the number of methylated CpGs
+(“n_meth”), the number of unmethylated CpGs (“n_unmeth”), and the total
+number of CpGs covered (“n_sites”). Importantly, this module requires
+the DMR Table to be provided. This allows the function to evaluate, for
+each read, the overlapping DMR (“dmr_id”) and the type of the
+overlapping DMR (“hypo” or “hyper”), where <strong>“overlapping” means
+the first and the last CpG sites within the read are both contained
+within a DMR</strong>. (See METER-quant module for details)</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>path_cpg_files<span class="ot">=</span><span class="st">&#39;/path/to/Bismark_files/&#39;</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>path_dmrs<span class="ot">=</span><span class="st">&#39;/path/to/dmr_filtered.rds&#39;</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>path_out<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/create_read_table/&#39;</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>cpg_files<span class="ot">=</span><span class="fu">list.files</span>(path_cpg_files, <span class="at">full.names =</span> T, <span class="at">pattern =</span> <span class="st">&#39;CpG_context&#39;</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>dmrs<span class="ot">=</span><span class="fu">readRDS</span>(path_dmrs)</span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="fu">head</span>(dmrs)</span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="co"># i=cpg_files[1]</span></span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a>parallel<span class="sc">::</span><span class="fu">mclapply</span>(cpg_files, <span class="cf">function</span>(i){</span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a>  samp_id<span class="ot">=</span><span class="fu">gsub</span>(<span class="st">&#39;CpG_context_&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="fu">strsplit</span>(<span class="fu">basename</span>(i), <span class="st">&quot;_bismark_&quot;</span>, <span class="at">fixed =</span> T)[[<span class="dv">1</span>]][<span class="dv">1</span>])</span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a>  read_table<span class="ot">=</span><span class="fu">create_read_table</span>(<span class="at">path_cpg_file =</span> i, <span class="at">dmr_table =</span> dmrs)</span>
+<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a>  <span class="fu">saveRDS</span>(read_table, <span class="fu">file.path</span>(path_out, <span class="fu">paste0</span>(samp_id, <span class="st">&#39;.rds&#39;</span>)))</span>
+<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a>  }, <span class="at">mc.cores =</span> <span class="dv">6</span>)</span>
+<span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a></span>
+<span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a><span class="do">### take a look to one of the tables created</span></span>
+<span id="cb5-24"><a href="#cb5-24" tabindex="-1"></a>example_table<span class="ot">=</span><span class="fu">readRDS</span>(<span class="st">&#39;/path/to/output_folder/create_read_table/samp1.rds&#39;</span>)</span>
+<span id="cb5-25"><a href="#cb5-25" tabindex="-1"></a><span class="fu">head</span>(example_table)</span></code></pre></div>
+<h3 id="meter_detect_ptr">meter_detect_PTR</h3>
+<p>computes PTR for each sample and creates a summary table</p>
+<ul>
+<li><strong>Input data and parameters</strong>:
+<ul>
+<li>path_read_tables: absolute path to the folder containing all the
+Read Tables created for each sample using <em>create_read_table</em>
+function (see previous step and METER-quant section).</li>
+<li>min_sites (default min_sites=6): integer indicating the minimum
+number of CpGs a read should contain in order to be considered for PTR
+computation</li>
+<li>ncores (default ncores=1): integer value representing the number of
+processor cores to use for parallel processing of samples.</li>
+</ul></li>
+<li><strong>Output</strong>:
+<ul>
+<li>PTR Table: a DataFrame containing PTR values for hypermethylated DMR
+(PTR_hyper), hypomethylated DMR (PTR_hypo), and both hyper and
+hypomethylated DMR combined (PTR_all) for each sample.
+<strong>PTR_all</strong> measure, integrating information from both
+hyper and hypomethylated DMR, should be used to classify samples.
+Specifically, using this measure, each sample can be classified as
+ctDNA+ (METER+) if its Z-Score exceeds a certain threshold
+(e.g. Z-Score=3 has been used in the METER study (2)). For breast cancer
+samples, values corresponding to various Z-Scores thresholds based on
+the distribution of PTR in control samples (reference model) are
+provided within METER package (PTR_z_scores.rds).</li>
+</ul></li>
+</ul>
+<p>Note 1: Sample ids in the “samp_id” column of the PTR Tables derive
+from the base name of the input Read Table files (generated in the
+preceding step) that have been chosen by the user</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>path_read_tabs<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/create_read_table/&#39;</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>path_out<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/&#39;</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>ptr_tab<span class="ot">=</span><span class="fu">meter_detect_PTR</span>(<span class="at">path_read_tables =</span> path_read_tabs, <span class="at">min_sites =</span> <span class="dv">6</span>, <span class="at">ncores =</span> <span class="dv">4</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="fu">head</span>(ptr_tab)</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="fu">saveRDS</span>(ptr_tab, <span class="fu">file.path</span>(path_out, <span class="st">&#39;meter_detect_PTR.rds&#39;</span>))</span></code></pre></div>
+<p>After generating the PTR Table for lpWGBS samples,
+<strong>PTR_all</strong> measure can be used to categorize samples as
+either ctDNA-positive or ctDNA-negative. For breast cancer samples, we
+can use the “PTR_z_score.rds” table available in the METER package.
+Specifically, the values associated with PTR_all in the “est_method”
+column serve as the benchmark thresholds. In the following example, a
+threshold corresponding to a Z-Sore of 3 is employed.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>path_zscore_table<span class="ot">=</span><span class="st">&#39;/path/to/PTR_z_scores.rds&#39;</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>zscore_table<span class="ot">=</span><span class="fu">readRDS</span>(path_zscore_table)</span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>zscore_table</span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>thr<span class="ot">=</span>zscore_table<span class="sc">$</span>z3[<span class="fu">which</span>(zscore_table<span class="sc">$</span>est_method<span class="sc">==</span><span class="st">&#39;PTR_all&#39;</span>)]</span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="do">### classify samples</span></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a>ptr_tab<span class="sc">$</span>meter_detected<span class="ot">=</span><span class="fu">ifelse</span>(ptr_tab<span class="sc">$</span>ptr_all<span class="sc">&gt;=</span>thr, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a><span class="fu">head</span>(ptr_tab)</span></code></pre></div>
+<h1 id="meter-subtype">METER-subtype</h1>
+<p>This module employes the Robust Partial Correlation (RPC)
+deconvolution method, as implemented in the EpiDISH (3) R package (PMID:
+28193155), to evaluate tumor subtype in circulation. For this method, a
+reference model is necessary, which is derived by computing the median
+beta value for each selected DMR across reference samples representing
+the components to be deconvoluted. Naturally, it is crucial that the DMR
+included in the reference model are tumor subtype-specific, meaning they
+should exhibit differential methylation between tumor subtype 1 and
+tumor subtype 2, as well as between tumor and healthy cfDNA (details for
+selecting such DMR are provided in the “Methods” of the METER study
+(2)). Additionally, the RPC method requires a beta table containing beta
+values for each selected DMR across all samples being analyzed. For
+breast cancer samples, the METER package provides a reference model
+including ER+/Her2-, TNBC, and healthy cfDNA components for 1605
+subtype-specific DMR (dmr_filtered_subtype.rds).</p>
+<h2 id="functions-2">Functions:</h2>
+<h3 id="create_dmr_beta_table">create_dmr_beta_table</h3>
+<p>This function computes beta by DMR values (as proportions) of
+selected DMR for each sample, and creates a DataFrame with samples as
+column names and DMR as row names. Beta values for each DMR are computed
+by treating all CpGs within a specific DMR collectively as a single CpG.
+Therefore, the beta value for each DMR is calculated based on the ratio
+of methylated signals to the total methylation signals for all CpGs
+within that DMR. In other words, it reflects the proportion of times all
+CpGs within the DMR are observed as methylated by sequence reads.</p>
+<ul>
+<li><strong>Input data and parameters</strong>:
+<ul>
+<li>dmr_table: a DataFrame reporting the chromosomal and genomic
+positions of selected subtype-specific DMR, containing at least 4
+columns: “dmr_id” (unique identifier for a specific DMR), “chr”
+(chromosome reported as “chr1”), “start” (starting genomic position),
+“end” (ending genomic position), and “type” (“hypo” for hypomethylated
+DMR or “hyper” for hypermethylated DMR). For breast cancer samples, the
+METER package provides a DataFrame including ER+Her2-, TNBC, and healthy
+cfDNA components for 1605 subtype-specific DMR
+(dmr_filtered_subtype.rds).</li>
+<li>path_cov_files: absolute path to the folder that contains all
+Bismark (1) “coverage files” for each sample.</li>
+<li>id_pattern: A string to be used as input for the R
+<code>strsplit()</code> function to extract sample names from the base
+names of the input “coverage files.” If not specified (default = NULL),
+the sample names will be directly obtained from the base names of the
+input “coverage files”.</li>
+<li>min_sites (default min_sites=0): minimum number of CpG sites that a
+DMR must include within a single sample. In simpler terms, it sets the
+smallest count of CpGs that need to be part of a DMR for it to be
+considered valid in the analysis of that sample.</li>
+</ul></li>
+<li><strong>Output</strong>:
+<ul>
+<li>Beta Table: a DataFrame containing the beta by DMR values (as
+proportions) of selected subtype-specific DMR across samples, with
+samples as column names and DMR as row names. Each DMR is reported with
+its unique “dmr_id”, matching the identifiers provided in the DMR
+table.</li>
+</ul></li>
+</ul>
+<p>Note 1: in this step it is not necessary to consider reads with alpha
+value of 100% only to compute beta by DMR, therefore the following
+example utilizes “original” Bismark (1) “coverage files” containing
+information from all sequenced reads.</p>
+<p>Note 2: in this deconvolution step it is recommended to consider the
+beta of a specific DMR for a specific sample when the specific DMR for
+the specific sample covers a minimum number of CpGs, so that the beta
+computed is reliable (in our example we consider DMR containing a
+minimum of 10 CpGs per sample)</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>path_cov_files<span class="ot">=</span><span class="st">&#39;/path/to/Bismark_files/&#39;</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>path_dmrs<span class="ot">=</span><span class="st">&#39;/path/to/dmr_filtered_subtype.rds&#39;</span></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>path_out<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/&#39;</span></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>dmrs<span class="ot">=</span><span class="fu">readRDS</span>(path_dmrs)</span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="fu">head</span>(dmrs)</span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>dmr_beta<span class="ot">=</span><span class="fu">create_dmr_beta_table</span>(<span class="at">dmr_table =</span> dmrs, <span class="at">path_cov_files =</span> path_cov_files, <span class="at">id_pattern =</span> <span class="st">&#39;_bismark_&#39;</span>, <span class="at">min_sites =</span> <span class="dv">10</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a><span class="fu">head</span>(dmr_beta)</span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a><span class="fu">saveRDS</span>(<span class="at">object =</span> dmr_beta, <span class="at">file =</span> <span class="fu">file.path</span>(path_out, <span class="st">&#39;dmr_beta_subtype.rds&#39;</span>))</span></code></pre></div>
+<h3 id="meter_subtype">meter_subtype</h3>
+<p>This function utilizes the Robust Partial Correlation (RPC)
+deconvolution method, as implemented in the EpiDISH (3) R package (PMID:
+28193155), to infer the tumor subtype from lpWGBS data of cfDNA samples.
+The method estimates the proportions of tumor subtypes predefined in a
+reference mwethylation matrix, which contains the median beta values, of
+selected subtype-specific DMR, computed across subtype reference
+samples. The reference samples included in the matrix represent the
+components to be deconvoluted. Importantly, the components estimated
+using EpiDISH (3) are designed to sum to 1, as the input reference
+matrix is expected to account for all possible components of a sample.
+Therefore, the reference matrix must include a column labeled
+“healthy_cfDNA”, representing the healthy cell-free DNA (cfDNA)
+component, alongside columns representing the tumor subtypes of
+interest, as METER-subtype is specifically designed for cfDNA
+samples.</p>
+<ul>
+<li><strong>Input data and parameters</strong>:
+<ul>
+<li>dmr_beta: a DataFrame (as obtained through the create_dmr_beta_table
+function in the previous step) containing the beta by DMR values (as
+proportions) of selected subtype-specific DMR across samples to be
+inspected, with samples as column names and DMR as row names. Each DMR
+must be reported with a unique “dmr_id”.</li>
+<li>ref_mat: a matrix or DataFrame containing the median beta values
+computed across subtype reference samples for each subtype-specific DMR,
+with subtypes as column names and DMR as row names. Each DMR must be
+reported with its unique “dmr_id”, matching the identifiers provided in
+the dmr_beta table. The column names of the matrix represent the
+components to be deconvoluted, and must include a column labeled
+“healthy_cfDNA” representing the healthy cfDNA component.</li>
+</ul></li>
+<li><strong>Output</strong>:
+<ul>
+<li>a DataFrame containing for each sample (row names) the estimated
+proportion of each component included in ref_mat (column names). An
+additional column labeled “pred_subtype”, alongsides columns relative to
+each component, reports the inferred subtype based on the predominant
+tumor subtype (not healthy cfDNA) estimated component.</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>path_subtype_ref<span class="ot">=</span><span class="st">&#39;/path/to/ERpos_TNBC_ref.rds&#39;</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>path_dmr_beta_sub<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/dmr_beta_subtype.rds&#39;</span></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>path_out<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/&#39;</span></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a><span class="fu">dir.create</span>(path_out, <span class="at">showWarnings =</span> F)</span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>subtype_ref<span class="ot">=</span><span class="fu">readRDS</span>(path_subtype_ref)</span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>dmr_beta_sub<span class="ot">=</span><span class="fu">readRDS</span>(path_dmr_beta_sub)</span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a>est_sub<span class="ot">=</span><span class="fu">meter_subtype</span>(<span class="at">ref_mat =</span> subtype_ref, <span class="at">dmr_beta =</span> dmr_beta_sub)</span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a><span class="fu">saveRDS</span>(est_sub, <span class="fu">file.path</span>(path_out, <span class="st">&#39;RPC_components.rds&#39;</span>))</span></code></pre></div>
+<h1 id="references">References</h1>
+<ul>
+<li><ol style="list-style-type: decimal">
+<li>Krueger F, Andrews SR. Bismark: a flexible aligner and methylation
+caller for Bisulfite-Seq applications. Bioinformatics. 2011 Jun
+1;27(11):1571-2. doi: 10.1093/bioinformatics/btr167. Epub 2011 Apr 14.
+PMID: 21493656; PMCID: PMC3102221.</li>
+</ol></li>
+<li><ol start="2" style="list-style-type: decimal">
+<li>doi: <a href="https://doi.org/10.1101/2024.06.10.598204">https://doi.org/10.1101/2024.06.10.598204</a></li>
+</ol></li>
+<li><ol start="3" style="list-style-type: decimal">
+<li>Teschendorff AE, Breeze CE, Zheng SC, Beck S. A comparison of
+reference-based algorithms for correcting cell-type heterogeneity in
+Epigenome-Wide Association Studies. BMC Bioinformatics. 2017 Feb
+13;18(1):105. doi: 10.1186/s12859-017-1511-5. PMID: 28193155; PMCID:
+PMC5307731.</li>
+</ol></li>
+</ul>
+
+</body>
+</html>
