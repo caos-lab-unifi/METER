@@ -1,6 +1,6 @@
 #' Create table of DMS beta-values
 #'
-#' @param dms_table A DataFrame specifying the chromosomal and genomic positions of selected DMS, with at least 4 required columns: `dms_id` (unique identifier for each DMS), `chr` (chromosome, e.g., 'chr1', 'chr2'), `pos` (genomic position), and `type` (methylation status, either 'hypo' for hypomethylated or 'hyper' for hypermethylated DMS)
+#' @param dms_table A DataFrame specifying the chromosomal and genomic positions of selected DMS, with at least 3 required columns: `dms_id` (unique identifier for each DMS), `chr` (chromosome, e.g., 'chr1', 'chr2') and `pos` (genomic position).
 #' @param path_cov_files The absolute path to the folder containing the filtered coverage files of samples to be analyzed, which should have been created using the `METER::filter_cov_alpha100` function.
 #' @param id_pattern A string to be used as input for the R `strsplit()` function to extract sample names from the base names of the input "coverage files." If not specified (default = NULL), the sample names will be directly obtained from the base names of the input "coverage files".
 #'
@@ -10,7 +10,7 @@
 #'
 create_dms_beta_table <- function(dms_table, path_cov_files, id_pattern=NULL){
 
-  assertthat::assert_that(all(c("dms_id", "chr", "pos", "type") %in% colnames(dms_table)),
+  assertthat::assert_that(all(c("dms_id", "chr", "pos") %in% colnames(dms_table)),
                           msg = "The dms_table does not include required columns")
 
 
@@ -25,8 +25,7 @@ create_dms_beta_table <- function(dms_table, path_cov_files, id_pattern=NULL){
   gr_dms <- GenomicRanges::GRanges(seqnames = dms_table$chr,
                                 ranges = IRanges::IRanges(start = dms_table$pos,
                                                           width = 1),
-                                dms_id=dms_table$dms_id,
-                                type=dms_table$type)
+                                dms_id=dms_table$dms_id)
 
 
   ### create DMS table
