@@ -7,7 +7,7 @@
 create_dms_beta_table(dms_table, path_cov_files, id_pattern = NULL)
 }
 \arguments{
-\item{dms_table}{A DataFrame specifying the chromosomal and genomic positions of selected DMS, with at least 4 required columns: `dms_id` (unique identifier for each DMS), `chr` (chromosome, e.g., 'chr1', 'chr2'), `pos` (genomic position), and `type` (methylation status, either 'hypo' for hypomethylated or 'hyper' for hypermethylated DMS)}
+\item{dms_table}{A DataFrame specifying the chromosomal and genomic positions of selected DMS, with at least 3 required columns: `dms_id` (unique identifier for each DMS), `chr` (chromosome, e.g., 'chr1', 'chr2') and `pos` (genomic position).}
 
 \item{path_cov_files}{The absolute path to the folder containing the filtered coverage files of samples to be analyzed, which should have been created using the `METER::filter_cov_alpha100` function.}
 

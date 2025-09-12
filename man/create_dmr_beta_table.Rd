@@ -12,7 +12,7 @@ create_dmr_beta_table(
 )
 }
 \arguments{
-\item{dmr_table}{A DataFrame specifying the chromosomal and genomic positions of selected DMR, with at least 4 required columns: `dmr_id` (unique identifier for each DMR), `chr` (chromosome, e.g., 'chr1', 'chr2'), `start` (starting genomic position), `end` (ending genomic position), and `type` (methylation status, either 'hypo' for hypomethylated or 'hyper' for hypermethylated DMR).}
+\item{dmr_table}{A DataFrame specifying the chromosomal and genomic positions of selected DMR, with at least 3 required columns: `dmr_id` (unique identifier for each DMR), `chr` (chromosome, e.g., 'chr1', 'chr2'), `start` (starting genomic position), `end` (ending genomic position).}
 
 \item{path_cov_files}{The absolute path to the folder containing the coverage files for the samples to be analyzed, with a .cov extension. These files must follow the formatting of Bismark coverage files (see: https://www.bioinformatics.babraham.ac.uk/projects/bismark/).}
 
