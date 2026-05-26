@@ -1,4 +1,7 @@
 ---
+title: "Getting started with METER workflow"
+author: "Marta Paoli"
+date: "2025-01-24"
 output: github_document
 ---
 
@@ -7,7 +10,6 @@ output: github_document
 
 
 
-# METER workflow tutorial {-}
 METER (METhylome analyzER) is a computational tool to analyze the circulating tumor DNA (ctDNA) exploiting differentially methylated sites (DMS) and regions (DMR) from low-pass whole genome bisulphite sequencing (lpWGBS) data of cell-free DNA (cfDNA) samples [Paoli, M., Galardi, F. et al. 2026](https://doi.org/10.1186/s13073-026-01603-3).
 It comprises three modules:
 
@@ -19,12 +21,6 @@ It comprises three modules:
 
 Each module relies on task-specific informative DMR and DMS identified through the differential analysis between DNA-methylation data from tumor-type specific tissue samples and control samples such as cell-free DNA (cfDNA) samples from healthy donors or whole blood.
 
-
-
-```
-#> Error in `load_imports()`:
-#> ! The package "EpiDISH" is required.
-```
 
 
 # METER-quant
