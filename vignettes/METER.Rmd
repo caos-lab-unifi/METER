@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 # METER workflow tutorial {-}
-METER (METhylome analyzER) is a computational tool to analyze the circulating tumor DNA (ctDNA) exploiting differentially methylated sites (DMS) and regions (DMR) from low-pass whole genome bisulphite sequencing (lpWGBS) data of cell-free DNA (cfDNA) samples.
+METER (METhylome analyzER) is a computational tool to analyze the circulating tumor DNA (ctDNA) exploiting differentially methylated sites (DMS) and regions (DMR) from low-pass whole genome bisulphite sequencing (lpWGBS) data of cell-free DNA (cfDNA) samples [Paoli, M., Galardi, F. et al. 2026](https://doi.org/10.1186/s13073-026-01603-3).
 It comprises three modules:
 
 * **METER-quant** to measure the ctDNA, based on tumor-specific DMS
@@ -240,7 +240,7 @@ computes PTR for each sample and creates a summary table
     + ncores (default ncores=1): integer value representing the number of processor cores to use for parallel processing of samples.
     
 * **Output**:
-    + PTR Table: a DataFrame containing PTR values for hypermethylated DMR (PTR_hyper), hypomethylated DMR (PTR_hypo), and both hyper and hypomethylated DMR combined (PTR_all) for each sample. **PTR_all** measure, integrating information from both hyper and hypomethylated DMR, should be used to classify samples. Specifically, using this measure, each sample can be classified as ctDNA+ (METER+) if its Z-Score exceeds a certain threshold (e.g. Z-Score=3 has been used in the METER study (2)). For breast cancer samples, values corresponding to various Z-Scores thresholds based on the distribution of PTR in control samples (reference model) are provided within METER package (PTR_z_scores.rds). 
+    + PTR Table: a DataFrame containing PTR values for hypermethylated DMR (PTR_hyper), hypomethylated DMR (PTR_hypo), and both hyper and hypomethylated DMR combined (PTR_all) for each sample. **PTR_all** measure, integrating information from both hyper and hypomethylated DMR, should be used to classify samples. Specifically, using this measure, each sample can be classified as ctDNA+ (METER+) if its Z-Score exceeds a certain threshold (e.g. Z-Score=3 has been used in the METER study [Paoli, M., Galardi, F. et al. 2026](https://doi.org/10.1186/s13073-026-01603-3)). For breast cancer samples, values corresponding to various Z-Scores thresholds based on the distribution of PTR in control samples (reference model) are provided within METER package (PTR_z_scores.rds). 
     
 Note 1: Sample ids in the "samp_id" column of the PTR Tables derive from the base name of the input Read Table files (generated in the preceding step) that have been chosen by the user  
     
@@ -282,7 +282,7 @@ head(ptr_tab)
 
 
 # METER-subtype
-This module employes the Robust Partial Correlation (RPC) deconvolution method, as implemented in the EpiDISH (3) R package (PMID: 28193155), to evaluate tumor subtype in circulation. For this method, a reference model is necessary, which is derived by computing the median beta value for each selected DMR across reference samples representing the components to be deconvoluted. Naturally, it is crucial that the DMR included in the reference model are tumor subtype-specific, meaning they should exhibit differential methylation between tumor subtype 1 and tumor subtype 2, as well as between tumor and healthy cfDNA (details for selecting such DMR are provided in the "Methods" of the METER study (2)). Additionally, the RPC method requires a beta table containing beta values for each selected DMR across all samples being analyzed. For breast cancer samples, the METER package provides a reference model including ER+/Her2-, TNBC, and healthy cfDNA components for 1605 subtype-specific DMR (dmr_filtered_subtype.rds).
+This module employes the Robust Partial Correlation (RPC) deconvolution method, as implemented in the EpiDISH (2) R package (PMID: 28193155), to evaluate tumor subtype in circulation. For this method, a reference model is necessary, which is derived by computing the median beta value for each selected DMR across reference samples representing the components to be deconvoluted. Naturally, it is crucial that the DMR included in the reference model are tumor subtype-specific, meaning they should exhibit differential methylation between tumor subtype 1 and tumor subtype 2, as well as between tumor and healthy cfDNA (details for selecting such DMR are provided in the "Methods" of the METER study [Paoli, M., Galardi, F. et al. 2026](https://doi.org/10.1186/s13073-026-01603-3)). Additionally, the RPC method requires a beta table containing beta values for each selected DMR across all samples being analyzed. For breast cancer samples, the METER package provides a reference model including ER+/Her2-, TNBC, and healthy cfDNA components for 1605 subtype-specific DMR (dmr_filtered_subtype.rds).
 
 ## Functions: 
 
@@ -318,8 +318,8 @@ saveRDS(object = dmr_beta, file = file.path(path_out, 'dmr_beta_subtype.rds'))
 ```
 
 ### meter_subtype
-This function utilizes the Robust Partial Correlation (RPC) deconvolution method, as implemented in the EpiDISH (3) R package (PMID: 28193155), to infer the tumor subtype from lpWGBS data of cfDNA samples. The method estimates the proportions of tumor subtypes predefined in a reference mwethylation matrix, which contains the median beta values, of selected subtype-specific DMR, computed across subtype reference samples. The reference samples included in the matrix represent the components to be deconvoluted.
-Importantly, the components estimated using EpiDISH (3) are designed to sum to 1, as the input reference matrix is expected to account for all possible components of a sample. Therefore, the reference matrix must include a column labeled "healthy_cfDNA", representing the healthy cell-free DNA (cfDNA) component, alongside columns representing the tumor subtypes of interest, as METER-subtype is specifically designed for cfDNA samples.
+This function utilizes the Robust Partial Correlation (RPC) deconvolution method, as implemented in the EpiDISH (2) R package (PMID: 28193155), to infer the tumor subtype from lpWGBS data of cfDNA samples. The method estimates the proportions of tumor subtypes predefined in a reference mwethylation matrix, which contains the median beta values, of selected subtype-specific DMR, computed across subtype reference samples. The reference samples included in the matrix represent the components to be deconvoluted.
+Importantly, the components estimated using EpiDISH (2) are designed to sum to 1, as the input reference matrix is expected to account for all possible components of a sample. Therefore, the reference matrix must include a column labeled "healthy_cfDNA", representing the healthy cell-free DNA (cfDNA) component, alongside columns representing the tumor subtypes of interest, as METER-subtype is specifically designed for cfDNA samples.
 
 * **Input data and parameters**:
     + dmr_beta: a DataFrame (as obtained through the create_dmr_beta_table function in the previous step) containing the beta by DMR values (as proportions) of selected subtype-specific DMR across samples to be inspected, with samples as column names and DMR as row names. Each DMR must be reported with a unique "dmr_id".
@@ -350,6 +350,5 @@ saveRDS(est_sub, file.path(path_out, 'RPC_components.rds'))
 
 # References
 + (1) Krueger F, Andrews SR. Bismark: a flexible aligner and methylation caller for Bisulfite-Seq applications. Bioinformatics. 2011 Jun 1;27(11):1571-2. doi: 10.1093/bioinformatics/btr167. Epub 2011 Apr 14. PMID: 21493656; PMCID: PMC3102221.
-+ (2) doi: https://doi.org/10.1101/2024.06.10.598204
-+ (3) Teschendorff AE, Breeze CE, Zheng SC, Beck S. A comparison of reference-based algorithms for correcting cell-type heterogeneity in Epigenome-Wide Association Studies. BMC Bioinformatics. 2017 Feb 13;18(1):105. doi: 10.1186/s12859-017-1511-5. PMID: 28193155; PMCID: PMC5307731.
++ (2) Teschendorff AE, Breeze CE, Zheng SC, Beck S. A comparison of reference-based algorithms for correcting cell-type heterogeneity in Epigenome-Wide Association Studies. BMC Bioinformatics. 2017 Feb 13;18(1):105. doi: 10.1186/s12859-017-1511-5. PMID: 28193155; PMCID: PMC5307731.
 
