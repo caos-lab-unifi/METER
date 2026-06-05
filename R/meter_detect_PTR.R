@@ -1,23 +1,24 @@
 #' Computes 'proportions of tumor-like reads' PTR for each sample and creates a summary table
 #'
-#' @param path_read_tables The absolute path to the folder containing all the Read Tables generated for each sample using the create_read_table function.
+#' @param path_read_tables The absolute path to the folder containing all the Read Tables 
+#' generated for each sample using the `METER::create_read_table` function, 
+#' which must have been created providing a `dmr_table` as input.
 #' @param min_sites An integer specifying the minimum number of CpGs a read must contain to be included in the PTR calculation (default: min_sites = 6).
 #' @param ncores An integer specifying the number of processor cores to use for parallel processing of samples (default: ncores = 1).
 #'
-#' @return A DataFrame ('PTR Table') containing PTR values for each sample, including `PTR_hyper` (for hypermethylated DMR), `PTR_hypo` (for hypomethylated DMR), and `PTR_all` (combining both hyper- and hypomethylated DMR). The `PTR_all` metric, which integrates information from both hyper- and hypomethylated DMR, is recommended for classifying samples as ctDNA+/-.
+#' @return A DataFrame ('PTR Table') containing PTR values for each sample,
+#' including `ptr_hyper` (for hypermethylated DMR), `ptr_hypo` (for hypomethylated DMR),
+#' and `ptr_all` (combining both hyper- and hypomethylated DMR). The `ptr_all` metric,
+#' which integrates information from both hyper- and hypomethylated DMR, is recommended for classifying samples as ctDNA+/-.
 #' @export
 #'
 meter_detect_PTR <- function(path_read_tables, min_sites = 6, ncores = 1){
 
-  # ### check input
-  # system_cores <- parallel::detectCores()
-  #
-  # if (!is.na(system_cores)){
-  #   assertthat::assert_that(ncores < system_cores)
-  # }
-
   ### list files
   lf=list.files(path_read_tables, full.names = T, pattern = '.rds')
+  
+  assertthat::assert_that(length(lf)>0,
+                          msg = "the read tables folder is empty")
 
 
   ### compute PTR by sample
@@ -28,6 +29,10 @@ meter_detect_PTR <- function(path_read_tables, min_sites = 6, ncores = 1){
     id=gsub('\\.rds', '', basename(i))
 
     read_dmr_table <- as.data.frame(read_dmr_table)
+    
+    
+    assertthat::assert_that(all(c("seq_id", "n_sites", "meth_perc", "dmr_id", "dmr_type") %in% colnames(read_dmr_table)),
+                            msg = "The read_dmr_table does not include required columns")
 
 
     ### prepare read_dmr_table
@@ -42,10 +47,6 @@ meter_detect_PTR <- function(path_read_tables, min_sites = 6, ncores = 1){
                                              read_dmr_table$meth_perc==0), ]
 
     rownames(read_dmr_table) <- NULL
-
-
-    ### check if reads are left
-    # assertthat::assert_that(nrow(read_dmr_table)>0)
 
 
     ### compute proportion of tumor-like reads (PTR)

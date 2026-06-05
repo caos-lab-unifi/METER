@@ -1,10 +1,15 @@
 #' Create table of DMS beta-values
 #'
-#' @param dms_table A DataFrame specifying the chromosomal and genomic positions of selected DMS, with at least 3 required columns: `dms_id` (unique identifier for each DMS), `chr` (chromosome, e.g., 'chr1', 'chr2') and `pos` (genomic position).
-#' @param path_cov_files The absolute path to the folder containing the filtered coverage files of samples to be analyzed, which should have been created using the `METER::filter_cov_alpha100` function.
-#' @param id_pattern A string to be used as input for the R `strsplit()` function to extract sample names from the base names of the input "coverage files." If not specified (default = NULL), the sample names will be directly obtained from the base names of the input "coverage files".
+#' @param dms_table A DataFrame specifying the chromosomal and genomic positions of selected DMS, with at least 3 required columns:
+#' `dms_id` (unique identifier for each DMS), `chr` (chromosome, e.g., 'chr1', 'chr2') and `pos` (genomic position).
+#' @param path_cov_files The absolute path to the folder containing the filtered coverage files of samples to be analyzed,
+#' which should have been created using the `METER::filter_cov_alpha100` function.
+#' @param id_pattern A string to be used as input for the R `strsplit()` function to extract sample names from the base names of
+#' the input "coverage files." If not specified (default = NULL), the sample names will be directly obtained from the base names of the input "coverage files".
 #'
-#' @return A DataFrame (Beta Table) containing the beta-values (proportions) of the selected DMS, with DMS as row names (identified by their unique `dms_id`, consistent with the `dms_table`) and samples as column names. Beta-values are calculated based on reads with alpha value of 1 and that cover a minimum number of CpGs.
+#' @return A DataFrame (Beta Table) containing the beta-values (percentages, ranging from 0 to 100) of the selected DMS, with DMS as row names
+#' (identified by their unique `dms_id`, consistent with the `dms_table`) and samples as column names.
+#' Beta-values are calculated based on reads with alpha value of 0 or 1 (fully unmethylated or fully methylated) and that cover a minimum number of CpGs.
 #' @export
 #'
 #'

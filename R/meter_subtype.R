@@ -1,9 +1,11 @@
 #' Infer tumor subtype from cfDNA samples
 #'
-#' @param ref_mat A matrix or DataFrame of median beta-values for DMR (row names) for reference components (column names), including a column labeled `healthy_cfDNA` with median beta-values of the reference cfDNA component.
-#' @param dmr_beta A DataFrame containing beta-values for DMR (row names) across cfDNA samples to be analyzed (column names).
+#' @param ref_mat A matrix or DataFrame of median beta-values (proportions, ranging from 0 to 1) for DMR (row names) for reference components (column names), including a
+#' column labeled `healthy_cfDNA` with median beta-values of the reference cfDNA component.
+#' @param dmr_beta A DataFrame containing beta-values (proportions, ranging from 0 to 1) for DMR (row names) across cfDNA samples to be analyzed (column names).
 #'
-#' @return A DataFrame where each row corresponds to an analyzed sample, containing the proportions of each component and an additional `pred_subtype` column indicating the inferred subtype.
+#' @return A DataFrame where each row corresponds to an analyzed sample, containing the proportions of each
+#' component and an additional `pred_subtype` column indicating the inferred subtype.
 #' @export
 #'
 meter_subtype <- function(ref_mat, dmr_beta){
@@ -29,14 +31,13 @@ meter_subtype <- function(ref_mat, dmr_beta){
 
   out_epidish=as.data.frame(out_epidish)
 
-  sub_out=out_epidish[ , -which(colnames(out_epidish) == "healthy_cfDNA")]
+  sub_out <- as.data.frame(out_epidish[ , -which(colnames(out_epidish) == "healthy_cfDNA")])
+  
 
   out_epidish$pred_subtype = apply(sub_out, 1, function(row) {
-    if (all(row == row[1])) {
-      NA_character_
-    } else {
-      colnames(sub_out)[which.max(row)]
-    }
+    max_val <- max(row)
+    max_cols <- colnames(sub_out)[which(row == max_val)]
+    if (length(max_cols) > 1) NA_character_ else max_cols
   })
 
   rm(sub_out)

@@ -587,12 +587,12 @@ code .in { color: #008080; }
 </style>
 <style>
 body {
-box-sizing: border-box;
-min-width: 200px;
-max-width: 980px;
-margin: 0 auto;
-padding: 45px;
-padding-top: 0px;
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 45px;
+  padding-top: 0px;
 }
 </style>
 
@@ -604,12 +604,13 @@ padding-top: 0px;
 <h1 id="getting-started-with-meter-workflow">Getting started with METER
 workflow</h1>
 <p>Marta Paoli 2025-01-24</p>
-<h1 id="meter-workflow-tutorial">METER workflow tutorial</h1>
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
 <p>METER (METhylome analyzER) is a computational tool to analyze the
 circulating tumor DNA (ctDNA) exploiting differentially methylated sites
 (DMS) and regions (DMR) from low-pass whole genome bisulphite sequencing
-(lpWGBS) data of cell-free DNA (cfDNA) samples. It comprises three
-modules:</p>
+(lpWGBS) data of cell-free DNA (cfDNA) samples <a href="https://doi.org/10.1186/s13073-026-01603-3">Paoli, M., Galardi, F.
+et al. 2026</a>. It comprises three modules:</p>
 <ul>
 <li><p><strong>METER-quant</strong> to measure the ctDNA, based on
 tumor-specific DMS</p></li>
@@ -676,30 +677,30 @@ process parallelization is recommended when possible</p>
 <p>Note 2: the file name of the output Read Table has to be chosen by
 the user when saving the table, and it will serve as sample ID for
 subsequent steps</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>path_cpg_files<span class="ot">=</span><span class="st">&#39;/path/to/Bismark_files/&#39;</span></span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>path_out<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/create_read_table_noDMR/&#39;</span></span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="fu">dir.create</span>(path_out, <span class="at">showWarnings =</span> F, <span class="at">recursive =</span> T)</span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>cpg_files<span class="ot">=</span><span class="fu">list.files</span>(path_cpg_files, <span class="at">full.names =</span> T, <span class="at">pattern =</span> <span class="st">&#39;CpG_context&#39;</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="co"># i=cpg_files[1]</span></span>
-<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a>parallel<span class="sc">::</span><span class="fu">mclapply</span>(cpg_files, <span class="cf">function</span>(i){</span>
-<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a>  samp_id<span class="ot">=</span><span class="fu">gsub</span>(<span class="st">&#39;CpG_context_&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="fu">strsplit</span>(<span class="fu">basename</span>(i), <span class="st">&quot;_bismark_&quot;</span>, <span class="at">fixed =</span> T)[[<span class="dv">1</span>]][<span class="dv">1</span>])</span>
-<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a>  read_table<span class="ot">=</span><span class="fu">create_read_table</span>(<span class="at">path_cpg_file =</span> i)</span>
-<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a>  <span class="fu">saveRDS</span>(read_table, <span class="fu">file.path</span>(path_out, <span class="fu">paste0</span>(samp_id, <span class="st">&#39;.rds&#39;</span>)))</span>
-<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a>  }, <span class="at">mc.cores =</span> <span class="dv">6</span>)</span>
-<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
-<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a><span class="do">### take a look to one of the tables created</span></span>
-<span id="cb1-23"><a href="#cb1-23" tabindex="-1"></a>example_table<span class="ot">=</span><span class="fu">readRDS</span>(<span class="st">&#39;/path/to/output_folder/create_read_table_noDMR/samp1.rds&#39;</span>)</span>
-<span id="cb1-24"><a href="#cb1-24" tabindex="-1"></a><span class="fu">head</span>(example_table)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>path_cpg_files<span class="ot">=</span><span class="st">&#39;/path/to/Bismark_files/&#39;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>path_out<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/create_read_table_noDMR/&#39;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(path_out, <span class="at">showWarnings =</span> F, <span class="at">recursive =</span> T)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>cpg_files<span class="ot">=</span><span class="fu">list.files</span>(path_cpg_files, <span class="at">full.names =</span> T, <span class="at">pattern =</span> <span class="st">&#39;CpG_context&#39;</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># i=cpg_files[1]</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>parallel<span class="sc">::</span><span class="fu">mclapply</span>(cpg_files, <span class="cf">function</span>(i){</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  samp_id<span class="ot">=</span><span class="fu">gsub</span>(<span class="st">&#39;CpG_context_&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="fu">strsplit</span>(<span class="fu">basename</span>(i), <span class="st">&quot;_bismark_&quot;</span>, <span class="at">fixed =</span> T)[[<span class="dv">1</span>]][<span class="dv">1</span>])</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  read_table<span class="ot">=</span><span class="fu">create_read_table</span>(<span class="at">path_cpg_file =</span> i)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">saveRDS</span>(read_table, <span class="fu">file.path</span>(path_out, <span class="fu">paste0</span>(samp_id, <span class="st">&#39;.rds&#39;</span>)))</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  }, <span class="at">mc.cores =</span> <span class="dv">6</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="do">### take a look to one of the tables created</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>example_table<span class="ot">=</span><span class="fu">readRDS</span>(<span class="st">&#39;/path/to/output_folder/create_read_table_noDMR/samp1.rds&#39;</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(example_table)</span></code></pre></div>
 <h3 id="filter_cov_alpha100">filter_cov_alpha100</h3>
 <p>Starting from Bismark (1) “CpG_context” file and the Read Table
 obtained in the previous step for a specific sample, this function
@@ -742,29 +743,29 @@ process parallelization is recommended when possible</p>
 <p>Note 2: The file name of the output .cov file derives from the base
 name of the input Read Table (generated in the preceding step) that has
 been chosen by the user</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>path_read_tables<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/create_read_table_noDMR/&#39;</span></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>path_cpg_files<span class="ot">=</span><span class="st">&#39;/path/to/Bismark_files/&#39;</span></span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>path_bis<span class="ot">=</span><span class="st">&#39;/path/to/bismark2bedGraph&#39;</span></span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>out_folder<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/filter_cov_alpha100/&#39;</span></span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="do">### CpG files (output of bismark methylation extractor using --comprehensive option)</span></span>
-<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>cpg_files<span class="ot">=</span><span class="fu">list.files</span>(path_cpg_files, <span class="at">full.names =</span> T, <span class="at">pattern =</span> <span class="st">&#39;^CpG_context*&#39;</span>)</span>
-<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="do">### bismark reads summary tables</span></span>
-<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>read_tables<span class="ot">=</span><span class="fu">list.files</span>(path_read_tables, <span class="at">full.names =</span> T, <span class="at">pattern =</span> <span class="st">&#39;.rds&#39;</span>)</span>
-<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="do">### run filter_cov_alpha100 function on all input samples</span></span>
-<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co"># i=read_tables[1]</span></span>
-<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a>parallel<span class="sc">::</span><span class="fu">mclapply</span>(read_tables, <span class="cf">function</span>(i){</span>
-<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a>  id<span class="ot">=</span><span class="fu">gsub</span>(<span class="st">&#39;.rds&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="fu">basename</span>(i), <span class="at">fixed =</span> T)</span>
-<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a></span>
-<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a>  path_cpg<span class="ot">=</span>cpg_files[<span class="fu">which</span>(<span class="fu">grepl</span>(id, cpg_files))]</span>
-<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a></span>
-<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a>  <span class="fu">filter_cov_alpha100</span>(<span class="at">path_bismark2bedGraph =</span> path_bis, <span class="at">path_cpg_file =</span> path_cpg, <span class="at">path_read_table =</span> i, <span class="at">path_out =</span> out_folder, <span class="at">remove_cpg =</span> F)</span>
-<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a></span>
-<span id="cb2-23"><a href="#cb2-23" tabindex="-1"></a>}, <span class="at">mc.cores =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>path_read_tables<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/create_read_table_noDMR/&#39;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>path_cpg_files<span class="ot">=</span><span class="st">&#39;/path/to/Bismark_files/&#39;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>path_bis<span class="ot">=</span><span class="st">&#39;/path/to/bismark2bedGraph&#39;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>out_folder<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/filter_cov_alpha100/&#39;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="do">### CpG files (output of bismark methylation extractor using --comprehensive option)</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>cpg_files<span class="ot">=</span><span class="fu">list.files</span>(path_cpg_files, <span class="at">full.names =</span> T, <span class="at">pattern =</span> <span class="st">&#39;^CpG_context*&#39;</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="do">### bismark reads summary tables</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>read_tables<span class="ot">=</span><span class="fu">list.files</span>(path_read_tables, <span class="at">full.names =</span> T, <span class="at">pattern =</span> <span class="st">&#39;.rds&#39;</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="do">### run filter_cov_alpha100 function on all input samples</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># i=read_tables[1]</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>parallel<span class="sc">::</span><span class="fu">mclapply</span>(read_tables, <span class="cf">function</span>(i){</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  id<span class="ot">=</span><span class="fu">gsub</span>(<span class="st">&#39;.rds&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="fu">basename</span>(i), <span class="at">fixed =</span> T)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  path_cpg<span class="ot">=</span>cpg_files[<span class="fu">which</span>(<span class="fu">grepl</span>(id, cpg_files))]</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter_cov_alpha100</span>(<span class="at">path_bismark2bedGraph =</span> path_bis, <span class="at">path_cpg_file =</span> path_cpg, <span class="at">path_read_table =</span> i, <span class="at">path_out =</span> out_folder, <span class="at">remove_cpg =</span> F)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>}, <span class="at">mc.cores =</span> <span class="dv">1</span>)</span></code></pre></div>
 <h3 id="create_dms_beta_table">create_dms_beta_table</h3>
 <p>This function computes the beta values (as proportions) of selected
 DMS for each sample, and creates a DataFrame with samples as column
@@ -805,18 +806,18 @@ derived from the base names of the input .cov files (that in turn derive
 from the base names of the read tables). Bismark (1) attaches some
 extensions to the .cov files generated that can be removed through the
 “id_pattern” parameter.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>path_cov_files<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/filter_cov_alpha100/&#39;</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>path_dmss<span class="ot">=</span><span class="st">&#39;/path/to/dms_filtered.rds&#39;</span></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>path_out<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/&#39;</span></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>dmss<span class="ot">=</span><span class="fu">readRDS</span>(path_dmss)</span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="fu">head</span>(dmss)</span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>dms_beta_tab<span class="ot">=</span><span class="fu">create_dms_beta_table</span>(<span class="at">dms_table =</span> dmss, <span class="at">path_cov_files =</span> path_cov_files, <span class="at">id_pattern =</span> <span class="st">&#39;.gz.bismark.cov.gz&#39;</span>)</span>
-<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="fu">head</span>(dms_beta_tab)</span>
-<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="fu">saveRDS</span>(<span class="at">object =</span> dms_beta_tab, <span class="at">file =</span> <span class="fu">file.path</span>(path_out, <span class="st">&#39;dms_beta.rds&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>path_cov_files<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/filter_cov_alpha100/&#39;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>path_dmss<span class="ot">=</span><span class="st">&#39;/path/to/dms_filtered.rds&#39;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>path_out<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/&#39;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>dmss<span class="ot">=</span><span class="fu">readRDS</span>(path_dmss)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dmss)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>dms_beta_tab<span class="ot">=</span><span class="fu">create_dms_beta_table</span>(<span class="at">dms_table =</span> dmss, <span class="at">path_cov_files =</span> path_cov_files, <span class="at">id_pattern =</span> <span class="st">&#39;.gz.bismark.cov.gz&#39;</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dms_beta_tab)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(<span class="at">object =</span> dms_beta_tab, <span class="at">file =</span> <span class="fu">file.path</span>(path_out, <span class="st">&#39;dms_beta.rds&#39;</span>))</span></code></pre></div>
 <h3 id="meter_quant_pts">meter_quant_PTS</h3>
 <p>computes PTS for each sample and creates a summary table</p>
 <ul>
@@ -845,22 +846,22 @@ hypomethylated DMS combined (PTS_all) for each sample. PTS_all measure
 can be used as a proxy of TC.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>path_dmss<span class="ot">=</span><span class="st">&#39;/path/to/dms_filtered.rds&#39;</span></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>path_dms_beta<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/dms_beta.rds&#39;</span></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>path_out<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/&#39;</span></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>dmss<span class="ot">=</span><span class="fu">readRDS</span>(path_dmss)</span>
-<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>dms_beta<span class="ot">=</span><span class="fu">readRDS</span>(path_dms_beta)</span>
-<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="fu">head</span>(dmss)</span>
-<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="fu">head</span>(dms_beta)</span>
-<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a></span>
-<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>pts_tab<span class="ot">=</span><span class="fu">meter_quant_PTS</span>(<span class="at">dms_table =</span> dmss, <span class="at">beta_table =</span> dms_beta)</span>
-<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a></span>
-<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="fu">head</span>(pts_tab)</span>
-<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a></span>
-<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a><span class="fu">saveRDS</span>(pts_tab, <span class="fu">file.path</span>(path_out, <span class="st">&#39;meter_quant_PTS.rds&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>path_dmss<span class="ot">=</span><span class="st">&#39;/path/to/dms_filtered.rds&#39;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>path_dms_beta<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/dms_beta.rds&#39;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>path_out<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/&#39;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>dmss<span class="ot">=</span><span class="fu">readRDS</span>(path_dmss)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>dms_beta<span class="ot">=</span><span class="fu">readRDS</span>(path_dms_beta)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dmss)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dms_beta)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>pts_tab<span class="ot">=</span><span class="fu">meter_quant_PTS</span>(<span class="at">dms_table =</span> dmss, <span class="at">beta_table =</span> dms_beta)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pts_tab)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(pts_tab, <span class="fu">file.path</span>(path_out, <span class="st">&#39;meter_quant_PTS.rds&#39;</span>))</span></code></pre></div>
 <h1 id="meter-detect">METER-detect</h1>
 <p>In this module, the “proportion of tumor-like sequenced reads” (PTR)
 is computed from lpWGBS data for each sample, and a Z-Score approach,
@@ -894,31 +895,31 @@ each read, the overlapping DMR (“dmr_id”) and the type of the
 overlapping DMR (“hypo” or “hyper”), where <strong>“overlapping” means
 the first and the last CpG sites within the read are both contained
 within a DMR</strong>. (See METER-quant module for details)</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>path_cpg_files<span class="ot">=</span><span class="st">&#39;/path/to/Bismark_files/&#39;</span></span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>path_dmrs<span class="ot">=</span><span class="st">&#39;/path/to/dmr_filtered.rds&#39;</span></span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>path_out<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/create_read_table/&#39;</span></span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>cpg_files<span class="ot">=</span><span class="fu">list.files</span>(path_cpg_files, <span class="at">full.names =</span> T, <span class="at">pattern =</span> <span class="st">&#39;CpG_context&#39;</span>)</span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>dmrs<span class="ot">=</span><span class="fu">readRDS</span>(path_dmrs)</span>
-<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="fu">head</span>(dmrs)</span>
-<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="co"># i=cpg_files[1]</span></span>
-<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a>parallel<span class="sc">::</span><span class="fu">mclapply</span>(cpg_files, <span class="cf">function</span>(i){</span>
-<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a></span>
-<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a>  samp_id<span class="ot">=</span><span class="fu">gsub</span>(<span class="st">&#39;CpG_context_&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="fu">strsplit</span>(<span class="fu">basename</span>(i), <span class="st">&quot;_bismark_&quot;</span>, <span class="at">fixed =</span> T)[[<span class="dv">1</span>]][<span class="dv">1</span>])</span>
-<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a></span>
-<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a>  read_table<span class="ot">=</span><span class="fu">create_read_table</span>(<span class="at">path_cpg_file =</span> i, <span class="at">dmr_table =</span> dmrs)</span>
-<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a></span>
-<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a>  <span class="fu">saveRDS</span>(read_table, <span class="fu">file.path</span>(path_out, <span class="fu">paste0</span>(samp_id, <span class="st">&#39;.rds&#39;</span>)))</span>
-<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a></span>
-<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a>  }, <span class="at">mc.cores =</span> <span class="dv">6</span>)</span>
-<span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a></span>
-<span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a></span>
-<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a><span class="do">### take a look to one of the tables created</span></span>
-<span id="cb5-24"><a href="#cb5-24" tabindex="-1"></a>example_table<span class="ot">=</span><span class="fu">readRDS</span>(<span class="st">&#39;/path/to/output_folder/create_read_table/samp1.rds&#39;</span>)</span>
-<span id="cb5-25"><a href="#cb5-25" tabindex="-1"></a><span class="fu">head</span>(example_table)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>path_cpg_files<span class="ot">=</span><span class="st">&#39;/path/to/Bismark_files/&#39;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>path_dmrs<span class="ot">=</span><span class="st">&#39;/path/to/dmr_filtered.rds&#39;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>path_out<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/create_read_table/&#39;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>cpg_files<span class="ot">=</span><span class="fu">list.files</span>(path_cpg_files, <span class="at">full.names =</span> T, <span class="at">pattern =</span> <span class="st">&#39;CpG_context&#39;</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>dmrs<span class="ot">=</span><span class="fu">readRDS</span>(path_dmrs)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dmrs)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># i=cpg_files[1]</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>parallel<span class="sc">::</span><span class="fu">mclapply</span>(cpg_files, <span class="cf">function</span>(i){</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  samp_id<span class="ot">=</span><span class="fu">gsub</span>(<span class="st">&#39;CpG_context_&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="fu">strsplit</span>(<span class="fu">basename</span>(i), <span class="st">&quot;_bismark_&quot;</span>, <span class="at">fixed =</span> T)[[<span class="dv">1</span>]][<span class="dv">1</span>])</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  read_table<span class="ot">=</span><span class="fu">create_read_table</span>(<span class="at">path_cpg_file =</span> i, <span class="at">dmr_table =</span> dmrs)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">saveRDS</span>(read_table, <span class="fu">file.path</span>(path_out, <span class="fu">paste0</span>(samp_id, <span class="st">&#39;.rds&#39;</span>)))</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  }, <span class="at">mc.cores =</span> <span class="dv">6</span>)</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="do">### take a look to one of the tables created</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>example_table<span class="ot">=</span><span class="fu">readRDS</span>(<span class="st">&#39;/path/to/output_folder/create_read_table/samp1.rds&#39;</span>)</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(example_table)</span></code></pre></div>
 <h3 id="meter_detect_ptr">meter_detect_PTR</h3>
 <p>computes PTR for each sample and creates a summary table</p>
 <ul>
@@ -942,24 +943,25 @@ hypomethylated DMR combined (PTR_all) for each sample.
 hyper and hypomethylated DMR, should be used to classify samples.
 Specifically, using this measure, each sample can be classified as
 ctDNA+ (METER+) if its Z-Score exceeds a certain threshold
-(e.g. Z-Score=3 has been used in the METER study (2)). For breast cancer
-samples, values corresponding to various Z-Scores thresholds based on
-the distribution of PTR in control samples (reference model) are
-provided within METER package (PTR_z_scores.rds).</li>
+(e.g. Z-Score=3 has been used in the METER study <a href="https://doi.org/10.1186/s13073-026-01603-3">Paoli, M., Galardi, F.
+et al. 2026</a>). For breast cancer samples, values corresponding to
+various Z-Scores thresholds based on the distribution of PTR in control
+samples (reference model) are provided within METER package
+(PTR_z_scores.rds).</li>
 </ul></li>
 </ul>
 <p>Note 1: Sample ids in the “samp_id” column of the PTR Tables derive
 from the base name of the input Read Table files (generated in the
 preceding step) that have been chosen by the user</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>path_read_tabs<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/create_read_table/&#39;</span></span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>path_out<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/&#39;</span></span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>ptr_tab<span class="ot">=</span><span class="fu">meter_detect_PTR</span>(<span class="at">path_read_tables =</span> path_read_tabs, <span class="at">min_sites =</span> <span class="dv">6</span>, <span class="at">ncores =</span> <span class="dv">4</span>)</span>
-<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="fu">head</span>(ptr_tab)</span>
-<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="fu">saveRDS</span>(ptr_tab, <span class="fu">file.path</span>(path_out, <span class="st">&#39;meter_detect_PTR.rds&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>path_read_tabs<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/create_read_table/&#39;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>path_out<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/&#39;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>ptr_tab<span class="ot">=</span><span class="fu">meter_detect_PTR</span>(<span class="at">path_read_tables =</span> path_read_tabs, <span class="at">min_sites =</span> <span class="dv">6</span>, <span class="at">ncores =</span> <span class="dv">4</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ptr_tab)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(ptr_tab, <span class="fu">file.path</span>(path_out, <span class="st">&#39;meter_detect_PTR.rds&#39;</span>))</span></code></pre></div>
 <p>After generating the PTR Table for lpWGBS samples,
 <strong>PTR_all</strong> measure can be used to categorize samples as
 either ctDNA-positive or ctDNA-negative. For breast cancer samples, we
@@ -967,21 +969,21 @@ can use the “PTR_z_score.rds” table available in the METER package.
 Specifically, the values associated with PTR_all in the “est_method”
 column serve as the benchmark thresholds. In the following example, a
 threshold corresponding to a Z-Sore of 3 is employed.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>path_zscore_table<span class="ot">=</span><span class="st">&#39;/path/to/PTR_z_scores.rds&#39;</span></span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>zscore_table<span class="ot">=</span><span class="fu">readRDS</span>(path_zscore_table)</span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>zscore_table</span>
-<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>thr<span class="ot">=</span>zscore_table<span class="sc">$</span>z3[<span class="fu">which</span>(zscore_table<span class="sc">$</span>est_method<span class="sc">==</span><span class="st">&#39;PTR_all&#39;</span>)]</span>
-<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="do">### classify samples</span></span>
-<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a>ptr_tab<span class="sc">$</span>meter_detected<span class="ot">=</span><span class="fu">ifelse</span>(ptr_tab<span class="sc">$</span>ptr_all<span class="sc">&gt;=</span>thr, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
-<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a><span class="fu">head</span>(ptr_tab)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>path_zscore_table<span class="ot">=</span><span class="st">&#39;/path/to/PTR_z_scores.rds&#39;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>zscore_table<span class="ot">=</span><span class="fu">readRDS</span>(path_zscore_table)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>zscore_table</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>thr<span class="ot">=</span>zscore_table<span class="sc">$</span>z3[<span class="fu">which</span>(zscore_table<span class="sc">$</span>est_method<span class="sc">==</span><span class="st">&#39;PTR_all&#39;</span>)]</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="do">### classify samples</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>ptr_tab<span class="sc">$</span>meter_detected<span class="ot">=</span><span class="fu">ifelse</span>(ptr_tab<span class="sc">$</span>ptr_all<span class="sc">&gt;=</span>thr, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ptr_tab)</span></code></pre></div>
 <h1 id="meter-subtype">METER-subtype</h1>
 <p>This module employes the Robust Partial Correlation (RPC)
-deconvolution method, as implemented in the EpiDISH (3) R package (PMID:
+deconvolution method, as implemented in the EpiDISH (2) R package (PMID:
 28193155), to evaluate tumor subtype in circulation. For this method, a
 reference model is necessary, which is derived by computing the median
 beta value for each selected DMR across reference samples representing
@@ -989,12 +991,12 @@ the components to be deconvoluted. Naturally, it is crucial that the DMR
 included in the reference model are tumor subtype-specific, meaning they
 should exhibit differential methylation between tumor subtype 1 and
 tumor subtype 2, as well as between tumor and healthy cfDNA (details for
-selecting such DMR are provided in the “Methods” of the METER study
-(2)). Additionally, the RPC method requires a beta table containing beta
-values for each selected DMR across all samples being analyzed. For
-breast cancer samples, the METER package provides a reference model
-including ER+/Her2-, TNBC, and healthy cfDNA components for 1605
-subtype-specific DMR (dmr_filtered_subtype.rds).</p>
+selecting such DMR are provided in the “Methods” of the METER study <a href="https://doi.org/10.1186/s13073-026-01603-3">Paoli, M., Galardi, F.
+et al. 2026</a>). Additionally, the RPC method requires a beta table
+containing beta values for each selected DMR across all samples being
+analyzed. For breast cancer samples, the METER package provides a
+reference model including ER+/Her2-, TNBC, and healthy cfDNA components
+for 1605 subtype-specific DMR (dmr_filtered_subtype.rds).</p>
 <h2 id="functions-2">Functions:</h2>
 <h3 id="create_dmr_beta_table">create_dmr_beta_table</h3>
 <p>This function computes beta by DMR values (as proportions) of
@@ -1047,27 +1049,27 @@ beta of a specific DMR for a specific sample when the specific DMR for
 the specific sample covers a minimum number of CpGs, so that the beta
 computed is reliable (in our example we consider DMR containing a
 minimum of 10 CpGs per sample)</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>path_cov_files<span class="ot">=</span><span class="st">&#39;/path/to/Bismark_files/&#39;</span></span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>path_dmrs<span class="ot">=</span><span class="st">&#39;/path/to/dmr_filtered_subtype.rds&#39;</span></span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>path_out<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/&#39;</span></span>
-<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>dmrs<span class="ot">=</span><span class="fu">readRDS</span>(path_dmrs)</span>
-<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="fu">head</span>(dmrs)</span>
-<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a></span>
-<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>dmr_beta<span class="ot">=</span><span class="fu">create_dmr_beta_table</span>(<span class="at">dmr_table =</span> dmrs, <span class="at">path_cov_files =</span> path_cov_files, <span class="at">id_pattern =</span> <span class="st">&#39;_bismark_&#39;</span>, <span class="at">min_sites =</span> <span class="dv">10</span>)</span>
-<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a><span class="fu">head</span>(dmr_beta)</span>
-<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a></span>
-<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a><span class="fu">saveRDS</span>(<span class="at">object =</span> dmr_beta, <span class="at">file =</span> <span class="fu">file.path</span>(path_out, <span class="st">&#39;dmr_beta_subtype.rds&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>path_cov_files<span class="ot">=</span><span class="st">&#39;/path/to/Bismark_files/&#39;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>path_dmrs<span class="ot">=</span><span class="st">&#39;/path/to/dmr_filtered_subtype.rds&#39;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>path_out<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/&#39;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>dmrs<span class="ot">=</span><span class="fu">readRDS</span>(path_dmrs)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dmrs)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>dmr_beta<span class="ot">=</span><span class="fu">create_dmr_beta_table</span>(<span class="at">dmr_table =</span> dmrs, <span class="at">path_cov_files =</span> path_cov_files, <span class="at">id_pattern =</span> <span class="st">&#39;_bismark_&#39;</span>, <span class="at">min_sites =</span> <span class="dv">10</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dmr_beta)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(<span class="at">object =</span> dmr_beta, <span class="at">file =</span> <span class="fu">file.path</span>(path_out, <span class="st">&#39;dmr_beta_subtype.rds&#39;</span>))</span></code></pre></div>
 <h3 id="meter_subtype">meter_subtype</h3>
 <p>This function utilizes the Robust Partial Correlation (RPC)
-deconvolution method, as implemented in the EpiDISH (3) R package (PMID:
+deconvolution method, as implemented in the EpiDISH (2) R package (PMID:
 28193155), to infer the tumor subtype from lpWGBS data of cfDNA samples.
 The method estimates the proportions of tumor subtypes predefined in a
 reference mwethylation matrix, which contains the median beta values, of
 selected subtype-specific DMR, computed across subtype reference
 samples. The reference samples included in the matrix represent the
 components to be deconvoluted. Importantly, the components estimated
-using EpiDISH (3) are designed to sum to 1, as the input reference
+using EpiDISH (2) are designed to sum to 1, as the input reference
 matrix is expected to account for all possible components of a sample.
 Therefore, the reference matrix must include a column labeled
 “healthy_cfDNA”, representing the healthy cell-free DNA (cfDNA)
@@ -1099,18 +1101,18 @@ each component, reports the inferred subtype based on the predominant
 tumor subtype (not healthy cfDNA) estimated component.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>path_subtype_ref<span class="ot">=</span><span class="st">&#39;/path/to/ERpos_TNBC_ref.rds&#39;</span></span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>path_dmr_beta_sub<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/dmr_beta_subtype.rds&#39;</span></span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>path_out<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/&#39;</span></span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a><span class="fu">dir.create</span>(path_out, <span class="at">showWarnings =</span> F)</span>
-<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>subtype_ref<span class="ot">=</span><span class="fu">readRDS</span>(path_subtype_ref)</span>
-<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>dmr_beta_sub<span class="ot">=</span><span class="fu">readRDS</span>(path_dmr_beta_sub)</span>
-<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a></span>
-<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a>est_sub<span class="ot">=</span><span class="fu">meter_subtype</span>(<span class="at">ref_mat =</span> subtype_ref, <span class="at">dmr_beta =</span> dmr_beta_sub)</span>
-<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a></span>
-<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a><span class="fu">saveRDS</span>(est_sub, <span class="fu">file.path</span>(path_out, <span class="st">&#39;RPC_components.rds&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>path_subtype_ref<span class="ot">=</span><span class="st">&#39;/path/to/ERpos_TNBC_ref.rds&#39;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>path_dmr_beta_sub<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/dmr_beta_subtype.rds&#39;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>path_out<span class="ot">=</span><span class="st">&#39;/path/to/output_folder/&#39;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(path_out, <span class="at">showWarnings =</span> F)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>subtype_ref<span class="ot">=</span><span class="fu">readRDS</span>(path_subtype_ref)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>dmr_beta_sub<span class="ot">=</span><span class="fu">readRDS</span>(path_dmr_beta_sub)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>est_sub<span class="ot">=</span><span class="fu">meter_subtype</span>(<span class="at">ref_mat =</span> subtype_ref, <span class="at">dmr_beta =</span> dmr_beta_sub)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(est_sub, <span class="fu">file.path</span>(path_out, <span class="st">&#39;RPC_components.rds&#39;</span>))</span></code></pre></div>
 <h1 id="references">References</h1>
 <ul>
 <li><ol style="list-style-type: decimal">
@@ -1120,9 +1122,6 @@ caller for Bisulfite-Seq applications. Bioinformatics. 2011 Jun
 PMID: 21493656; PMCID: PMC3102221.</li>
 </ol></li>
 <li><ol start="2" style="list-style-type: decimal">
-<li>doi: <a href="https://doi.org/10.1101/2024.06.10.598204">https://doi.org/10.1101/2024.06.10.598204</a></li>
-</ol></li>
-<li><ol start="3" style="list-style-type: decimal">
 <li>Teschendorff AE, Breeze CE, Zheng SC, Beck S. A comparison of
 reference-based algorithms for correcting cell-type heterogeneity in
 Epigenome-Wide Association Studies. BMC Bioinformatics. 2017 Feb
