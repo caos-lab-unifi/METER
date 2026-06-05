@@ -88,7 +88,7 @@ user when saving the table, and it will serve as sample ID for
 subsequent steps
 
 ``` r
-path_cpg_files='/path/to/Bismark_files/'
+path_cpg_files = system.file("extdata/Bismark", package = "METER")
 path_out='/path/to/output_folder/create_read_table_noDMR/'
 
 dir.create(path_out, showWarnings = F, recursive = T)
@@ -158,7 +158,7 @@ chosen by the user
 
 ``` r
 path_read_tables='/path/to/output_folder/create_read_table_noDMR/'
-path_cpg_files='/path/to/Bismark_files/'
+path_cpg_files = system.file("extdata/Bismark", package = "METER")
 path_bis='/path/to/bismark2bedGraph'
 out_folder='/path/to/output_folder/filter_cov_alpha100/'
 
@@ -222,9 +222,9 @@ extensions to the .cov files generated that can be removed through the
 “id_pattern” parameter.
 
 ``` r
-path_cov_files='/path/to/output_folder/filter_cov_alpha100/'
-path_dmss='/path/to/dms_filtered.rds'
-path_out='/path/to/output_folder/'
+path_cov_files = '/path/to/output_folder/filter_cov_alpha100/'
+path_dmss = system.file("extdata/dmr_dms_tables/dms_filtered.rds", package = "METER")
+path_out = '/path/to/output_folder/'
 
 dmss=readRDS(path_dmss)
 head(dmss)
@@ -263,7 +263,7 @@ computes pTS for each sample and creates a summary table
         each sample. pTS_all measure can be used as a proxy of TC.
 
 ``` r
-path_dmss='/path/to/dms_filtered.rds'
+path_dmss = system.file("extdata/dmr_dms_tables/dms_filtered.rds", package = "METER")
 path_dms_beta='/path/to/output_folder/dms_beta.rds'
 path_out='/path/to/output_folder/'
 
@@ -320,8 +320,8 @@ first and the last CpG sites within the read are both contained within a
 DMR**. (See METER-quant module for details)
 
 ``` r
-path_cpg_files='/path/to/Bismark_files/'
-path_dmrs='/path/to/dmr_filtered.rds'
+path_cpg_files = system.file("extdata/Bismark", package = "METER")
+path_dmrs = system.file("extdata/dmr_dms_tables/dmr_filtered.rds", package = "METER")
 path_out='/path/to/output_folder/create_read_table/'
 
 
@@ -401,7 +401,7 @@ the benchmark thresholds. In the following example, a threshold
 corresponding to a Z-Score of 3 is employed.
 
 ``` r
-path_zscore_table='/path/to/PTR_z_scores.rds'
+path_zscore_table = system.file("extdata/PTR_z_scores.rds", package = "METER")
 
 zscore_table=readRDS(path_zscore_table)
 
@@ -488,8 +488,8 @@ computed is reliable (in our example we consider DMR containing a
 minimum of 10 CpGs per sample)
 
 ``` r
-path_cov_files='/path/to/Bismark_files/'
-path_dmrs='/path/to/dmr_filtered_subtype.rds'
+path_cov_files = system.file("extdata/Bismark", package = "METER")
+path_dmrs = system.file("extdata/dmr_dms_tables/dmr_filtered_subtype.rds", package = "METER")
 path_out='/path/to/output_folder/'
 
 dmrs=readRDS(path_dmrs)
@@ -542,7 +542,7 @@ interest, as METER-subtype is specifically designed for cfDNA samples.
         component.
 
 ``` r
-path_subtype_ref='/path/to/ERpos_TNBC_ref.rds'
+path_subtype_ref <- system.file("extdata/ERpos_TNBC_ref.rds", package = "METER")
 path_dmr_beta_sub='/path/to/output_folder/dmr_beta_subtype.rds'
 path_out='/path/to/output_folder/'
 
