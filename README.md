@@ -26,6 +26,16 @@ through the differential analysis between DNA-methylation data from
 tumor-type specific tissue samples and control samples such as cell-free
 DNA (cfDNA) samples from healthy donors or whole blood.
 
+## Installation
+
+You can install the development version of METER from
+[GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("caos-lab-unifi/METER")
+```
+
 # METER-quant
 
 In this module, the “proportion of tumor-like sites” (pTS) by sample is

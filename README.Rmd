@@ -29,6 +29,14 @@ It comprises three modules:
 Each module relies on task-specific informative DMR and DMS identified through the differential analysis between DNA-methylation data from tumor-type specific tissue samples and control samples such as cell-free DNA (cfDNA) samples from healthy donors or whole blood.
 
 
+## Installation
+
+You can install the development version of METER from [GitHub](https://github.com/) with:
+
+```r
+# install.packages("devtools")
+devtools::install_github("caos-lab-unifi/METER")
+```
 
 # METER-quant
 In this module, the “proportion of tumor-like sites” (pTS) by sample is measured from lpWGBS as a proxy of sample’s TC. pTS for each sample is computed as the ratio of **fully methylated (beta=100%) hypermethylated** or **fully unmethylated (beta=0%) hypomethylated** **DMS** (that is DMS supporting a tumor-like methylation signal) to the total fully methylated/unmethylated DMS covered. To minimize the effect of bisulfite conversion errors and increase signal specificity, only reads with alpha value of 1 or 0, that is reads showing only methylated or unmethylated CpG sites, and covering a minimum number of CpG sites (6 CpG sites by default) are considered for the computation of the beta values.
