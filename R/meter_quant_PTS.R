@@ -25,7 +25,7 @@ meter_quant_PTS <- function(dms_table, beta_table){
 
 
   ### select DMS of interest
-  beta_table <- beta_table[which(rownames(beta_table) %in% dms_table$dms_id), ]
+  beta_table <- beta_table[which(rownames(beta_table) %in% dms_table$dms_id), , drop = FALSE]
 
 
   ### hyper and hypo DMS of interest
@@ -34,7 +34,7 @@ meter_quant_PTS <- function(dms_table, beta_table){
 
 
   ### compute PTS of hyper DMS
-  pts_hyper <- beta_table[which(rownames(beta_table) %in% hyper_dms), ]
+  pts_hyper <- beta_table[which(rownames(beta_table) %in% hyper_dms), , drop = FALSE]
 
   pts_hyper <- apply(pts_hyper, 2, function(i) {
     sum(i==100, na.rm = T)/(sum(i==100, na.rm = T) + sum(i==0, na.rm = T))
@@ -42,7 +42,7 @@ meter_quant_PTS <- function(dms_table, beta_table){
 
 
   ### compute PTS of hypo DMS
-  pts_hypo <- beta_table[which(rownames(beta_table) %in% hypo_dms), ]
+  pts_hypo <- beta_table[which(rownames(beta_table) %in% hypo_dms), , drop = FALSE]
 
   pts_hypo <- apply(pts_hypo, 2, function(i) {
     sum(i==0, na.rm = T)/(sum(i==100, na.rm = T) + sum(i==0, na.rm = T))
@@ -50,12 +50,12 @@ meter_quant_PTS <- function(dms_table, beta_table){
 
 
   ### compute PTS of hyper or hypo DMS
-  tmp_hypo <- beta_table[which(rownames(beta_table) %in% hypo_dms), ]
+  tmp_hypo <- beta_table[which(rownames(beta_table) %in% hypo_dms), , drop = FALSE]
   tmp_hypo <- apply(tmp_hypo, 2, function(i) {
     sum(i==0, na.rm = T)
   })
 
-  tmp_hyper <- beta_table[which(rownames(beta_table) %in% hyper_dms), ]
+  tmp_hyper <- beta_table[which(rownames(beta_table) %in% hyper_dms), , drop = FALSE]
   tmp_hyper <- apply(tmp_hyper, 2, function(i) {
     sum(i==100, na.rm = T)
   })

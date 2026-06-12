@@ -15,12 +15,11 @@ meter_subtype <- function(ref_mat, dmr_beta){
   assertthat::assert_that("healthy_cfDNA" %in% colnames(ref_mat), msg = "'healthy_cfDNA' column is missing in ref_mat")
   assertthat::assert_that(length(common_dmr)>0, msg = "There are no commom dmr ids between ref_mat and dmr_beta")
 
-  ref_mat=ref_mat[common_dmr, ]
+  ref_mat=ref_mat[common_dmr, , drop = FALSE]
+  dmr_beta=dmr_beta[common_dmr, , drop = FALSE]
 
-  dmr_beta=dmr_beta[common_dmr, ]
-
-  ref_mat=ref_mat[order(row.names(ref_mat)), ]
-  dmr_beta=dmr_beta[order(row.names(dmr_beta)), ]
+  ref_mat=ref_mat[order(row.names(ref_mat)), , drop = FALSE]
+  dmr_beta=dmr_beta[order(row.names(dmr_beta)), , drop = FALSE]
 
   ref_mat=as.matrix(ref_mat)
   dmr_beta=as.matrix(dmr_beta)
@@ -31,7 +30,7 @@ meter_subtype <- function(ref_mat, dmr_beta){
 
   out_epidish=as.data.frame(out_epidish)
 
-  sub_out <- as.data.frame(out_epidish[ , -which(colnames(out_epidish) == "healthy_cfDNA")])
+  sub_out <- as.data.frame(out_epidish[ , -which(colnames(out_epidish) == "healthy_cfDNA"), drop = FALSE])
   
 
   out_epidish$pred_subtype = apply(sub_out, 1, function(row) {
